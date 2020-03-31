@@ -23,9 +23,7 @@ function App() {
           <Route component={Notfound} />
         </Switch>
       </main>
-      <footer>
-        <Footer />
-      </footer>
+      <Footer />
     </Router>
   );
 }

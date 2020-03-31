@@ -5,6 +5,6 @@ import "./Footer.css";
 
 export default class Footer extends Component {
   render() {
-    return <div className="Footer">Footer COMP</div>;
+    return <footer className="page-footer">Footer COMP Ulises</footer>;
   }
 }
