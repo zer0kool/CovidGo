@@ -9,6 +9,8 @@ import "materialize-css/dist/css/materialize.min.css";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import Main from "./components/Main/Main";
+import TopStats from "./components/TopStats/TopStats";
+
 
 function App() {
   return (
@@ -18,6 +20,7 @@ function App() {
       </header>
       <main>
         <Route exact path="/" component={Main} />
+        <TopStats />
       </main>
       <footer>
         <Footer />
