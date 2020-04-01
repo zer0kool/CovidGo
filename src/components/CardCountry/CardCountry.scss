@@ -1,0 +1,19 @@
+.CardCountry {
+    border: 1px solid white;
+    .container_country {
+        display: flex;
+        .flag_country {
+            img {
+                height: 40px;
+                width: auto;
+            }
+        }
+        .data_country {
+            span {
+                font-weight: bold;
+                display: inline-block;
+                margin-left: 10px;
+            }
+        }
+    }
+}
