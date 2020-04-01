@@ -5,6 +5,10 @@ import "./Main.css";
 
 export default class Intro extends Component {
   render() {
-    return <div className="Main">Main COMP</div>;
+    return (
+        <div className="Main">
+
+        </div>
+    );
   }
 }
