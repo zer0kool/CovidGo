@@ -11,7 +11,7 @@ export default class Footer extends Component {
             <div className="row">
               <div className="col l6 s12">
                 <h5 className="white-text">CovidGo</h5>
-                <p className="grey-text text-lighten-4">Built with hope to bring more awareness to communities and make them realize that staying at home can stop this pandemic.</p>
+                <p className="grey-text text-lighten-4">Built with hope to bring more awareness to communities and make them realize that staying at home can stop this pandemic. #WeAreWavook</p>
               </div>
               <div className="col l4 offset-l2 s12">
                 <h5 className="white-text">Resources</h5>
@@ -19,7 +19,7 @@ export default class Footer extends Component {
                   <li><a className="grey-text text-lighten-3" href="#!">React</a></li>
                   <li><a className="grey-text text-lighten-3" href="#!">MaterializeCSS</a></li>
                   <li><a className="grey-text text-lighten-3" href="#!">Github</a></li>
-                  <li><a className="grey-text text-lighten-3" href="#!">HostingProvider</a></li>
+                  <li><a className="grey-text text-lighten-3" href="#!">Heroku</a></li>
                 </ul>
               </div>
             </div>
