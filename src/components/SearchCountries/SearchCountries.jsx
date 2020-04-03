@@ -6,6 +6,7 @@ import "./SearchCountries.css";
 //Components
 import CardCountry from "../CardCountry/CardCountry";
 import InputFilterByName from "../InputFilterByName/InputFilterByName";
+import SelectFilter from "../SelectFilter/SelectFilter";
 
 export default class SearchCountries extends Component {
     constructor(props) {
@@ -36,6 +37,9 @@ export default class SearchCountries extends Component {
                     <InputFilterByName
                         filterCountries={this.filterCountries.bind(this)}
                     />
+                    <SelectFilter />
+                    <br />
+                    <br />
                 </div>
                 {this.state.countries.length > 0 ? (
                     this.state.countries.map((country, index) => {
