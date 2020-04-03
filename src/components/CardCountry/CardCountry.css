@@ -1,14 +1,11 @@
 .CardCountry {
   border: 1px solid white; }
-
-.CardCountry .container_country {
-  display: flex; }
-
-.CardCountry .container_country .flag_country img {
-  height: 40px;
-  width: auto; }
-
-.CardCountry .container_country .data_country span {
-  font-weight: bold;
-  display: inline-block;
-  margin-left: 10px; }
+  .CardCountry .container_country {
+    display: flex; }
+    .CardCountry .container_country .flag_country img {
+      height: 40px;
+      width: auto; }
+    .CardCountry .container_country .data_country span {
+      font-weight: bold;
+      display: inline-block;
+      margin-left: 10px; }
