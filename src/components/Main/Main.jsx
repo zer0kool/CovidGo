@@ -11,16 +11,19 @@ export default class Intro extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            data: []
+            data: [],
+            affectedCountries: []
         };
     }
 
     render() {
         return (
             <div className="Main">
-                {this.state.data.length > 0 ? (
+                {this.state.affectedCountries.length > 0 ? (
                     <div className="searchCountriesContainer">
-                        <SearchCountries countries={this.state.data} />
+                        <SearchCountries
+                            countries={this.state.affectedCountries}
+                        />
                     </div>
                 ) : (
                     <div>
@@ -38,7 +41,8 @@ export default class Intro extends Component {
         if (response.ok) {
             let jsonData = await response.json();
             this.setState({
-                data: [].concat(this.state.data, jsonData)
+                data: [].concat(this.state.data, jsonData),
+                affectedCountries: [].concat(this.state.data, jsonData)
             });
             console.log(this.state.data);
         } else {
