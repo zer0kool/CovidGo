@@ -5,7 +5,7 @@ import "./Main.css";
 //Components
 import Loading from "../Loading/Loading";
 import SearchCountries from "../SearchCountries/SearchCountries";
-import TopStats from "../TopStats/TopStats";
+//import TopStats from "../TopStats/TopStats";
 
 export default class Intro extends Component {
     constructor(props) {
@@ -19,7 +19,6 @@ export default class Intro extends Component {
     render() {
         return (
             <div className="Main">
-               <TopStats />
                 {this.state.affectedCountries.length > 0 ? (
                     <div className="searchCountriesContainer">
                         <SearchCountries
