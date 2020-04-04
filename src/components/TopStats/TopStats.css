@@ -1,49 +1,34 @@
-.top-container{
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-wrap: wrap;
-    flex-wrap: wrap;
-    -webkit-box-pack: justify;
-    -ms-flex-pack: justify;
-    justify-content: space-evenly;
-}
+.top-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-evenly; }
 
-.cardx{
-    border-radius: 5px;
-    color: white;
-    min-height: 180px;
-    background-color: rgba(67, 77, 75, 0.34);
-    width: 47vw;
-    margin: 5px;
-    padding: 10px;
-      -webkit-box-shadow:
-  0 2.8px 2.2px rgba(0, 0, 0, 0.034),
-  0 6.7px 5.3px rgba(0, 0, 0, 0.048),
-  0 12.5px 10px rgba(0, 0, 0, 0.06),
-  0 22.3px 17.9px rgba(0, 0, 0, 0.072),
-  0 41.8px 33.4px rgba(0, 0, 0, 0.086),
-  0 100px 80px rgba(0, 0, 0, 0.12)
-;
-      box-shadow:
-  0 2.8px 2.2px rgba(0, 0, 0, 0.034),
-  0 6.7px 5.3px rgba(0, 0, 0, 0.048),
-  0 12.5px 10px rgba(0, 0, 0, 0.06),
-  0 22.3px 17.9px rgba(0, 0, 0, 0.072),
-  0 41.8px 33.4px rgba(0, 0, 0, 0.086),
-  0 100px 80px rgba(0, 0, 0, 0.12)
-;
+.cardx {
+  border-radius: 5px;
+  border-bottom: 4px solid #828282;
+  color: white;
+  min-height: 180px;
+  background-color: rgba(67, 77, 75, 0.34);
+  width: 47vw;
+  margin: 5px;
+  padding: 10px;
+  -webkit-box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034), 0 6.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.5px 10px rgba(0, 0, 0, 0.06), 0 22.3px 17.9px rgba(0, 0, 0, 0.072), 0 41.8px 33.4px rgba(0, 0, 0, 0.086), 0 100px 80px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034), 0 6.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.5px 10px rgba(0, 0, 0, 0.06), 0 22.3px 17.9px rgba(0, 0, 0, 0.072), 0 41.8px 33.4px rgba(0, 0, 0, 0.086), 0 100px 80px rgba(0, 0, 0, 0.12); }
 
-}
 .cardx span {
-    font-size: 1.5rem;
-}
+  font-size: 1.5rem; }
+
 .cardx h3 {
-    text-align: center;
-}
-.cardx p{
-    color: #a2a2a2;
-    font-size: 14px;
-    text-align: end;
-    font-weight: 500;
-}
+  text-align: center;
+  font-size: 2.7rem; }
+
+.cardx p {
+  color: #a2a2a2;
+  font-size: 14px;
+  text-align: end;
+  font-weight: 500; }

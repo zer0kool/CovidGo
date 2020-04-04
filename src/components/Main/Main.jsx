@@ -3,12 +3,14 @@ import React, { Component } from "react";
 //CSS
 import "./Main.css";
 
-export default class Intro extends Component {
-  render() {
-    return (
-        <div className="Main">
+import TopStats from "../TopStats/TopStats";
 
-        </div>
-    );
-  }
+export default class Intro extends Component {
+    render() {
+        return (
+            <div className="Main">
+            <TopStats />
+            </div>
+        );
+    }
 }
