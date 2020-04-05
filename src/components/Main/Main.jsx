@@ -7,7 +7,7 @@ import "./Main.css";
 import Loading from "../Loading/Loading";
 import SearchCountries from "../SearchCountries/SearchCountries";
 
-export default class Intro extends Component {
+export default class Main extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -35,18 +35,20 @@ export default class Intro extends Component {
     }
 
     async componentDidMount() {
-        let url = "http://api.coronastatistics.live/countries";
-        let response = await fetch(url);
+        let url = "http://api.coronastatistics.live/countries"; //URL
+        let response = await fetch(url); //Obtengo los valores de la API
 
         if (response.ok) {
-            let jsonData = await response.json();
+            //si obtuvo un 200
+            let jsonData = await response.json(); //Formateo los datos a JSON
             this.setState({
-                data: [].concat(this.state.data, jsonData),
+                //Importante esto de aqui es exclusivo de  react -  Para cambiar los valores declarados en el STATE del componente
+                data: [].concat(this.state.data, jsonData), //Como en el STATE esta variable la declaro como [] vacio, entonces le concateno la respuesta
                 affectedCountries: [].concat(this.state.data, jsonData)
             });
             console.log(this.state.data);
         } else {
-            alert("HTTP-Error: " + response.status);
+            alert("HTTP-Error: " + response.status); //Si hay algun error
         }
     }
 }
