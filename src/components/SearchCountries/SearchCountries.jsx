@@ -41,6 +41,7 @@ export default class SearchCountries extends Component {
                     <br />
                     <br />
                 </div>
+                <div className="countryList">
                 {this.state.countries.length > 0 ? (
                     this.state.countries.map((country, index) => {
                         return <CardCountry country={country} key={index} />;
@@ -48,6 +49,7 @@ export default class SearchCountries extends Component {
                 ) : (
                     <div className="white-text m-left">Country Not Found.</div>
                 )}
+                </div>
             </div>
         );
     }

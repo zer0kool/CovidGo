@@ -2,10 +2,10 @@ import React, { Component } from "react";
 
 //CSS
 import "./Main.css";
-
 //Components
 import Loading from "../Loading/Loading";
 import SearchCountries from "../SearchCountries/SearchCountries";
+//import TopStats from "../TopStats/TopStats";
 
 export default class Main extends Component {
     constructor(props) {
