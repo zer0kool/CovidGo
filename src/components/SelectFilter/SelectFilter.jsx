@@ -5,7 +5,7 @@ import "./SelectFilter.css";
 export default class SelectFilter extends Component {
     render() {
         return (
-            <div class="input-field col s12">
+            <div className="input-field col s12">
                 <select>
                     <option value="" disabled selected>
                         Choose your option
