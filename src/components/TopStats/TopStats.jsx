@@ -10,40 +10,74 @@ export default class TopStats extends Component {
     constructor(props) {
         super(props);
         this.state = {
-          global: {cases: 0, deaths: 0, recovered: 0}
+          globalTotal: {cases: 0, deaths: 0, recovered: 0},
+          globalTimeline: [],
+          yesturdayGlobal: {cases: 0, deaths: 0, recovered: 0}
         };
     }
 
     render() {
         const covid = this.state;
 
+        let todayCases = covid.globalTotal.cases - covid.yesturdayGlobal.cases;
+        let todayDeaths = covid.globalTotal.deaths - covid.yesturdayGlobal.deaths;
+        let todayRecovered = covid.globalTotal.recovered - covid.yesturdayGlobal.recovered;
+
         return (
             <div className="top-container">
-              <StatCard label="Infected" totalStats={covid.global.cases.toLocaleString()} todayStats={0} />
-              <StatCard label="Deaths" totalStats={covid.global.deaths.toLocaleString()} todayStats={0} />
-              <StatCard label="Recovered" totalStats={covid.global.recovered.toLocaleString()} todayStats={0} />
+              <StatCard label="Infected" totalStats={covid.globalTotal.cases.toLocaleString()} todayStats={`Today ${todayCases.toLocaleString()} new cases`} />
+              <StatCard label="Deaths" totalStats={covid.globalTotal.deaths.toLocaleString()} todayStats={`Today ${todayDeaths.toLocaleString()} have died`} />
+              <StatCard label="Recovered" totalStats={covid.globalTotal.recovered.toLocaleString()} todayStats={`Today ${todayRecovered.toLocaleString()} recovered`} />
               <StatCard label="Critical" totalStats="NEED" todayStats={0} />
             </div>
         );
     }
 
     async componentDidMount() {
-        let url = "http://api.coronastatistics.live/all";
+        let totalStatsEndPoint = "http://api.coronastatistics.live/all";
+        let globalStatsEndPoint = "https://api.coronastatistics.live/timeline/global"
 
-        let response = await fetch(url);
-        if (response.ok) {
+        let totalStatsCall = await fetch(totalStatsEndPoint);
+        if (totalStatsCall.ok) {
             try{
-                let jsonData = await response.json();
+                let totalStatsResponse = await totalStatsCall.json();
                 this.setState({
-                    data: [].concat(this.state.data, jsonData),
-                    global: jsonData
+                    globalTotal: totalStatsResponse
                 });
-                console.log(this.state.data);
             }catch(error){
                 console.error(error);
             }
         } else {
-            console.error("HTTP-Error: " + response.status);
+            console.error(`HTTP_ERROR on ${totalStatsEndPoint}, Status: ${totalStatsCall.status}`);
         }
-    }
+
+
+        let globalStatsCall = await fetch(globalStatsEndPoint);
+        if (globalStatsCall.ok) {
+            try{
+                let globalStatsResponse = await globalStatsCall.json();
+
+                function getYesterdaysDate() {
+                    var date = new Date();
+                    date.setDate(date.getDate()-1);
+                    let yesturday = `${date.getFullYear()}-${(date.getMonth()+1)}-${date.getDate()}`;
+                    return yesturday.toString();
+                }
+                let yesturdayStats = globalStatsResponse[getYesterdaysDate()]
+                console.log(globalStatsResponse[getYesterdaysDate()]);
+
+                this.setState({
+                    globalTimeline: globalStatsResponse,
+                    yesturdayGlobal: yesturdayStats
+                });
+                console.log(globalStatsResponse);
+            }catch(error){
+                console.error(error);
+            }
+        } else {
+            console.error(`HTTP_ERROR on ${globalStatsEndPoint}, Status: ${globalStatsCall.status}`);
+        }
+
+    } // end of Mount
+
 }
