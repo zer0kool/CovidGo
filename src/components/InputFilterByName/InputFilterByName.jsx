@@ -11,7 +11,7 @@ export default class InputFilterByName extends Component {
                     type="text"
                     name=""
                     id=""
-                    placeholder="Seach Affected Country"
+                    placeholder="Search Affected Country"
                     className="white-text"
                     onChange={(e) => this.props.filterCountries(e.target.value)}
                 />

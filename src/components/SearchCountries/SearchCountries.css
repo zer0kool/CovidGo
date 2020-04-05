@@ -26,3 +26,11 @@
   overflow: auto;
   overflow-y: scroll;
   height: -webkit-fill-available; }
+
+.inputFilterByName {
+    padding: 5px 10px;
+    color: white;
+    border: 1px solid #eeeeee26;
+    border-radius: 5px;
+    background-color: #ffffff0a;
+}
