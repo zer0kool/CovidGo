@@ -29,6 +29,10 @@ export default class SearchCountries extends Component {
         });
     };
 
+    sortCountries = () => {
+        console.log("Sort");
+    };
+
     render() {
         return (
             <div className="SearchCountries">
@@ -37,18 +41,20 @@ export default class SearchCountries extends Component {
                     <InputFilterByName
                         filterCountries={this.filterCountries.bind(this)}
                     />
-                    <SelectFilter />
-                    <br />
-                    <br />
+                    <SelectFilter sort={this.sortCountries.bind(this)} />
                 </div>
                 <div className="countryList">
-                {this.state.countries.length > 0 ? (
-                    this.state.countries.map((country, index) => {
-                        return <CardCountry country={country} key={index} />;
-                    })
-                ) : (
-                    <div className="white-text m-left">Country Not Found.</div>
-                )}
+                    {this.state.countries.length > 0 ? (
+                        this.state.countries.map((country, index) => {
+                            return (
+                                <CardCountry country={country} key={index} />
+                            );
+                        })
+                    ) : (
+                        <div className="white-text m-left">
+                            Country Not Found.
+                        </div>
+                    )}
                 </div>
             </div>
         );

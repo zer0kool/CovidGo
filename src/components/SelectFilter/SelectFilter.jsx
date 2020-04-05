@@ -3,18 +3,19 @@ import React, { Component } from "react";
 import "./SelectFilter.css";
 
 export default class SelectFilter extends Component {
+    hola = () => {
+        console.log("red");
+    };
     render() {
         return (
-            <div className="input-field col s12">
-                <select>
-                    <option value="" disabled>
+            <div>
+                <select className="browser-default" onChange={this.hola()}>
+                    <option value="" disabled defaultValue>
                         Choose your option
                     </option>
-                    <option value="1">Option 1</option>
-                    <option value="2">Option 2</option>
-                    <option value="3">Option 3</option>
+                    <option value="1">Total Cases</option>
+                    <option value="2">Total Deaths</option>
                 </select>
-                <label>Materialize Select</label>
             </div>
         );
     }

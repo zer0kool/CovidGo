@@ -1,4 +1,7 @@
 .inputFilterByName {
     padding: 5px 10px;
     color: white;
+    .selectInput {
+        min-width: 350px;
+    }
 }
