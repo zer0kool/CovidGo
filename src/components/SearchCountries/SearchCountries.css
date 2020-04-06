@@ -1,13 +1,28 @@
 .SearchCountries {
-  background-color: rgba(67, 77, 75, 0.34);
-  border-radius: 10px;
+  border-radius: 5px;
+  border-bottom: 4px solid #828282;
   color: white;
-  height: 430px;
+  min-height: 180px;
+  height: 700px;
+  overflow: hidden;
+  background-color: rgba(67, 77, 75, 0.34);
+  width: 97vw;
+  margin: 5px;
+  padding: 10px;
+  -webkit-box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034), 0 6.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.5px 10px rgba(0, 0, 0, 0.06), 0 22.3px 17.9px rgba(0, 0, 0, 0.072), 0 41.8px 33.4px rgba(0, 0, 0, 0.086), 0 100px 80px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034), 0 6.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.5px 10px rgba(0, 0, 0, 0.06), 0 22.3px 17.9px rgba(0, 0, 0, 0.072), 0 41.8px 33.4px rgba(0, 0, 0, 0.086), 0 100px 80px rgba(0, 0, 0, 0.12); }
+
+.searchCountriesContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-pack: space-evenly;
+  -ms-flex-pack: space-evenly;
+  justify-content: space-evenly; }
+
+.countryList {
+  overflow: auto;
   overflow-y: scroll;
-  padding: 20px;
-  width: 50%; }
-  .SearchCountries .m-left {
-    margin-left: 20px; }
-  .SearchCountries .filters {
-    display: flex;
-    justify-content: space-between; }
+  height: -webkit-fill-available; }
