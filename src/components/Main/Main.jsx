@@ -35,7 +35,7 @@ export default class Intro extends Component {
     }
 
     async componentDidMount() {
-        let url = "http://api.coronastatistics.live/countries";
+        let url = "https://api.coronastatistics.live/countries";
         let response = await fetch(url);
 
         if (response.ok) {
