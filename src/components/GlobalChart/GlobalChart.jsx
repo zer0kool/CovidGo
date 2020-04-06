@@ -42,13 +42,6 @@ export default class GlobalChart extends Component {
         let hs = polygonTemplate.states.create("hover");
         hs.properties.fill = chart.colors.getIndex(0);
 
-        // Add image series
-        let imageSeries = chart.series.push(new am4maps.MapImageSeries());
-        imageSeries.mapImages.template.propertyFields.longitude = "longitude";
-        imageSeries.mapImages.template.propertyFields.latitude = "latitude";
-        imageSeries.mapImages.template.tooltipText = "{title}";
-        imageSeries.mapImages.template.propertyFields.url = "url";
-
         this.chart = chart;
     }
 

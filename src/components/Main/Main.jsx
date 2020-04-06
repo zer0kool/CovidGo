@@ -6,6 +6,7 @@ import "./Main.css";
 import Loading from "../Loading/Loading";
 import SearchCountries from "../SearchCountries/SearchCountries";
 import GlobalChart from "../GlobalChart/GlobalChart";
+import DistributionChart from "../DistributionChart/DistributionChart";
 //import TopStats from "../TopStats/TopStats";
 
 export default class Main extends Component {
@@ -13,11 +14,15 @@ export default class Main extends Component {
         super(props);
         this.state = {
             data: [],
-            affectedCountries: []
+            affectedCountries: [],
+            totalCasesToday: 0,
+            totalRemaining: 0,
+            allInformation: {}
         };
     }
 
     render() {
+        console.log(this.state);
         return (
             <div className="Main">
                 {this.state.affectedCountries.length > 0 ? (
@@ -28,7 +33,16 @@ export default class Main extends Component {
                             />
                         </div>
                         <div className="globalChartContainer">
-                            <GlobalChart />
+                            {/* <GlobalChart />   PENDIENTE*/}
+                        </div>
+                        <div className="distributionChartContainer">
+                            {this.state.totalRemaining > 0 && (
+                                <DistributionChart
+                                    allInformation={this.state.allInformation}
+                                    totalCasesToday={this.state.totalCasesToday}
+                                    totalRemaining={this.state.totalRemaining}
+                                />
+                            )}
                         </div>
                     </Fragment>
                 ) : (
@@ -40,21 +54,51 @@ export default class Main extends Component {
         );
     }
 
-    async componentDidMount() {
-        let url = "http://api.coronastatistics.live/countries"; //URL
-        let response = await fetch(url); //Obtengo los valores de la API
+    getTotalCasesToday = () => {
+        let totalCasesToday = 0;
+        this.state.data.map((country) => {
+            totalCasesToday += country.todayCases;
+        });
+        return totalCasesToday;
+    };
 
-        if (response.ok) {
-            //si obtuvo un 200
-            let jsonData = await response.json(); //Formateo los datos a JSON
-            this.setState({
+    getTotalRemaining = () => {
+        const { cases, deaths, recovered } = this.state.allInformation;
+        let remaining = 0;
+        remaining = cases - recovered - deaths;
+        return remaining;
+    };
+
+    getStatistics = () => {
+        this.setState({
+            totalCasesToday: this.getTotalCasesToday(),
+            totalRemaining: this.getTotalRemaining()
+        });
+    };
+    async componentDidMount() {
+        try {
+            let urlAll = "http://api.coronastatistics.live/all";
+            let urlCountries = "http://api.coronastatistics.live/countries"; //URL
+
+            let responseAll = await fetch(urlAll); //Obtengo los valores de la API
+            let responseCountries = await fetch(urlCountries); //Obtengo los valores de la API
+
+            let jsonDataAll = await responseAll.json(); //Formateo los datos a JSON
+            let jsonDataCountries = await responseCountries.json(); //Formateo los datos a JSON
+
+            await this.setState({
                 //Importante esto de aqui es exclusivo de  react -  Para cambiar los valores declarados en el STATE del componente
-                data: [].concat(this.state.data, jsonData), //Como en el STATE esta variable la declaro como [] vacio, entonces le concateno la respuesta
-                affectedCountries: [].concat(this.state.data, jsonData)
+                data: [].concat(this.state.data, jsonDataCountries), //Como en el STATE esta variable la declaro como [] vacio, entonces le concateno la respuesta
+                affectedCountries: [].concat(
+                    this.state.data,
+                    jsonDataCountries
+                ),
+                allInformation: jsonDataAll
             });
-            console.log(this.state.data);
-        } else {
-            alert("HTTP-Error: " + response.status); //Si hay algun error
+            //Set all important data to the Componentes in Main
+            this.getStatistics();
+        } catch (error) {
+            alert("HTTP-Error: " + error); //Si hay algun error
         }
     }
 }
