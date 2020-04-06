@@ -66,3 +66,7 @@
 flex-direction: column; */
   -ms-flex-flow: row-reverse;
   flex-flow: row-reverse; }
+
+.flag_country img {
+  -webkit-box-shadow: 0 8px 6px -6px black;
+  box-shadow: 0 8px 6px -6px black; }
