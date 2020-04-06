@@ -1,10 +1,11 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 
 //CSS
 import "./Main.css";
 //Components
 import Loading from "../Loading/Loading";
 import SearchCountries from "../SearchCountries/SearchCountries";
+import GlobalChart from "../GlobalChart/GlobalChart";
 //import TopStats from "../TopStats/TopStats";
 
 export default class Main extends Component {
@@ -20,11 +21,16 @@ export default class Main extends Component {
         return (
             <div className="Main">
                 {this.state.affectedCountries.length > 0 ? (
-                    <div className="searchCountriesContainer">
-                        <SearchCountries
-                            countries={this.state.affectedCountries}
-                        />
-                    </div>
+                    <Fragment>
+                        <div className="searchCountriesContainer">
+                            <SearchCountries
+                                countries={this.state.affectedCountries}
+                            />
+                        </div>
+                        <div className="globalChartContainer">
+                            <GlobalChart />
+                        </div>
+                    </Fragment>
                 ) : (
                     <div>
                         <Loading />

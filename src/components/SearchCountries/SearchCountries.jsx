@@ -41,7 +41,7 @@ export default class SearchCountries extends Component {
                     <InputFilterByName
                         filterCountries={this.filterCountries.bind(this)}
                     />
-                    <SelectFilter sort={this.sortCountries.bind(this)} />
+                    {/* <SelectFilter sort={this.sortCountries.bind(this)} /> */}
                 </div>
                 <div className="countryList">
                     {this.state.countries.length > 0 ? (
