@@ -6,10 +6,8 @@
   overflow-y: scroll;
   padding: 20px;
   width: 50%; }
-
-.SearchCountries .m-left {
-  margin-left: 20px; }
-
-.SearchCountries .filters {
-  display: flex;
-  justify-content: space-between; }
+  .SearchCountries .m-left {
+    margin-left: 20px; }
+  .SearchCountries .filters {
+    display: flex;
+    justify-content: space-between; }
