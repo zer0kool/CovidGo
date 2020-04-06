@@ -25,10 +25,10 @@ export default class TopStats extends Component {
 
         return (
             <div className="top-container">
-              <StatCard label="Infected" totalStats={covid.globalTotal.cases.toLocaleString()} todayStats={`Today ${todayCases.toLocaleString()} new cases`} />
-              <StatCard label="Deaths" totalStats={covid.globalTotal.deaths.toLocaleString()} todayStats={`Today ${todayDeaths.toLocaleString()} have died`} />
-              <StatCard label="Recovered" totalStats={covid.globalTotal.recovered.toLocaleString()} todayStats={`Today ${todayRecovered.toLocaleString()} recovered`} />
-              <StatCard label="Critical" totalStats="NEED" todayStats={0} />
+              <StatCard icon="mood_bad" label="Infected" totalStats={covid.globalTotal.cases.toLocaleString()} todayStats={`Today ${todayCases.toLocaleString()} new cases`} />
+              <StatCard icon="sentiment_very_dissatisfied" label="Deaths" totalStats={covid.globalTotal.deaths.toLocaleString()} todayStats={`Today ${todayDeaths.toLocaleString()} have died`} />
+              <StatCard icon="healing" label="Recovered" totalStats={covid.globalTotal.recovered.toLocaleString()} todayStats={`Today ${todayRecovered.toLocaleString()} recovered`} />
+              <StatCard icon="airline_seat_flat" label="Critical" totalStats="NEED" icon2="group_add" todayStats={0} />
             </div>
         );
     }
