@@ -1,5 +1,13 @@
-.DistributionChart {
-    border: 4px solid white;
+.DistributionChartContainer {
+    height: 700px;
+    border-bottom: 4px solid #828282;
+    background-color: rgba(67, 77, 75, 0.34);
     border-radius: 10px;
-    height: 500px;
+    h4 {
+        padding: 10px;
+        margin: 0;
+    }
+    .DistributionChart {
+        height: 500px;
+    }
 }

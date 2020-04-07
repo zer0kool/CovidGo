@@ -123,7 +123,8 @@ export default class DistributionChart extends Component {
 
     render() {
         return (
-            <div className="main">
+            <div className="DistributionChartContainer">
+                <h4 className="white-text">Rate Distribution</h4>
                 <div id="distribution" className="DistributionChart"></div>
             </div>
         );

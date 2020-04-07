@@ -40,9 +40,6 @@ export default class Main extends Component {
                                 countries={this.state.affectedCountries}
                             />
                         </div>
-                        <div className="globalChartContainer">
-                            {/* <GlobalChart />   PENDIENTE*/}
-                        </div>
                         <div className="distributionChartContainer">
                             {this.state.totalRemaining > 0 && (
                                 <DistributionChart
@@ -101,7 +98,6 @@ export default class Main extends Component {
 
             let responseAll = await fetch(urlAll); //Obtengo los valores de la API
             let responseCountries = await fetch(urlCountries); //Obtengo los valores de la API
-
             let jsonDataAll = await responseAll.json(); //Formateo los datos a JSON
             let jsonDataCountries = await responseCountries.json(); //Formateo los datos a JSON
 
@@ -117,7 +113,7 @@ export default class Main extends Component {
             //Set all important data to the Componentes in Main
             this.getStatistics();
         } catch (error) {
-            alert("HTTP-Error: " + error); //Si hay algun error
+            console.log("HTTP-Error: " + error); //Si hay algun error
         }
     }
 }
