@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from "react";
+import React, { Component } from "react";
 
 import * as am4core from "@amcharts/amcharts4/core";
 import * as am4charts from "@amcharts/amcharts4/charts";
@@ -27,7 +27,7 @@ export default class DistributionChart extends Component {
         // Themes end
 
         // Create chart instance
-        let chart = am4core.create("chartdiv", am4charts.RadarChart);
+        let chart = am4core.create("distribution", am4charts.RadarChart);
 
         // Add data
         chart.data = [
@@ -124,7 +124,7 @@ export default class DistributionChart extends Component {
     render() {
         return (
             <div className="main">
-                <div id="chartdiv" className="DistributionChart"></div>
+                <div id="distribution" className="DistributionChart"></div>
             </div>
         );
     }

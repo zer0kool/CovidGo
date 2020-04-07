@@ -21,7 +21,6 @@ function App() {
                 <SideNav />
             </header>
             <main>
-                <TopStats />
                 <Switch>
                     <Route exact path="/" component={Main} />
                     <Route component={Notfound} />

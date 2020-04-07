@@ -5,9 +5,9 @@ import "./Main.css";
 //Components
 import Loading from "../Loading/Loading";
 import SearchCountries from "../SearchCountries/SearchCountries";
-import GlobalChart from "../GlobalChart/GlobalChart";
+//import GlobalChart from "../GlobalChart/GlobalChart";
 import DistributionChart from "../DistributionChart/DistributionChart";
-//import TopStats from "../TopStats/TopStats";
+import TopStats from "../TopStats/TopStats";
 
 export default class Main extends Component {
     constructor(props) {
@@ -17,6 +17,7 @@ export default class Main extends Component {
             affectedCountries: [],
             totalCasesToday: 0,
             totalRemaining: 0,
+            totalDeathsToday: 0,
             allInformation: {}
         };
     }
@@ -26,6 +27,14 @@ export default class Main extends Component {
             <div className="Main">
                 {this.state.affectedCountries.length > 0 ? (
                     <Fragment>
+                        <div className="topStatsCotainer">
+                            <TopStats
+                                allInformation={this.state.allInformation}
+                                totalCasesToday={this.state.totalCasesToday}
+                                totalDeathsToday={this.state.totalDeathsToday}
+                                totalRemaining={this.state.totalRemaining}
+                            />
+                        </div>
                         <div className="searchCountriesContainer">
                             <SearchCountries
                                 countries={this.state.affectedCountries}
@@ -61,6 +70,14 @@ export default class Main extends Component {
         return totalCasesToday;
     };
 
+    getTotalDeathsToday = () => {
+        let totalDeathsToday = 0;
+        this.state.data.map((country) => {
+            totalDeathsToday += country.todayDeaths;
+        });
+        return totalDeathsToday;
+    };
+
     getTotalRemaining = () => {
         const { cases, deaths, recovered } = this.state.allInformation;
         let remaining = 0;
@@ -71,6 +88,7 @@ export default class Main extends Component {
     getStatistics = () => {
         this.setState({
             totalCasesToday: this.getTotalCasesToday(),
+            totalDeathsToday: this.getTotalDeathsToday(),
             totalRemaining: this.getTotalRemaining()
         });
     };

@@ -15,39 +15,39 @@ export default class GlobalGraph extends Component {
         };
     }
     async componentDidMount() {
-
-
-        let globalStatsEndPoint = "https://api.coronastatistics.live/timeline/global"
+        let globalStatsEndPoint =
+            "https://api.coronastatistics.live/timeline/global";
         let globalStatsCall = await fetch(globalStatsEndPoint);
         if (globalStatsCall.ok) {
-            try{
+            try {
                 var globalStatsResponse = await globalStatsCall.json();
 
                 //needs to be modified
-//                function getYesterdaysDate() {
-//                    var date = new Date();
-//                    date.setDate(date.getDate()-1);
-//                    let yesturday = `${date.getFullYear()}-${(date.getMonth()+1)}-${date.getDate()}`;
-//                    return yesturday.toString();
-//                }
-//                let yesturdayStats = globalStatsResponse[getYesterdaysDate()]
-//                console.log(globalStatsResponse[getYesterdaysDate()]);
+                //                function getYesterdaysDate() {
+                //                    var date = new Date();
+                //                    date.setDate(date.getDate()-1);
+                //                    let yesturday = `${date.getFullYear()}-${(date.getMonth()+1)}-${date.getDate()}`;
+                //                    return yesturday.toString();
+                //                }
+                //                let yesturdayStats = globalStatsResponse[getYesterdaysDate()]
+                //                console.log(globalStatsResponse[getYesterdaysDate()]);
 
                 this.setState({
-
-                    globalTimeline: [].concat(this.state.data, globalStatsResponse)
-
+                    globalTimeline: [].concat(
+                        this.state.data,
+                        globalStatsResponse
+                    )
                 });
 
                 console.log(this.state.globalTimeline);
-
-            }catch(error){
+            } catch (error) {
                 console.error(error);
             }
         } else {
-            console.error(`HTTP_ERROR on ${globalStatsEndPoint}, Status: ${globalStatsCall.status}`);
+            console.error(
+                `HTTP_ERROR on ${globalStatsEndPoint}, Status: ${globalStatsCall.status}`
+            );
         }
-
 
         // Themes begin
         am4core.useTheme(am4themes_dark);
@@ -55,27 +55,25 @@ export default class GlobalGraph extends Component {
         // Themes end
 
         // Create chart instance
-        let chart = am4core.create("chartdiv", am4charts.XYChart);
+        let chart = am4core.create("globalGraph", am4charts.XYChart);
 
-        var dates = []
+        var dates = [];
 
-        Object.entries(globalStatsResponse).forEach( function
-            ([date, {cases}]) {
-            var x =`{"date":new Date(${date}), "value":${cases}}`;
-            dates.push(x)
-            }
-        );
+        Object.entries(globalStatsResponse).forEach(function([
+            date,
+            { cases }
+        ]) {
+            var x = `{"date":new Date(${date}), "value":${cases}}`;
+            dates.push(x);
+        });
 
-
-
-        console.log(dates.toString())
-        let mico = dates.toString()
+        console.log(dates.toString());
+        let mico = dates.toString();
 
         chart.data = [dates];
-        console.log(chart.data)
+        console.log(chart.data);
 
-
-//        console.log(x)
+        //        console.log(x)
 
         // Create axes
         var dateAxis = chart.xAxes.push(new am4charts.DateAxis());
@@ -100,26 +98,26 @@ export default class GlobalGraph extends Component {
         secondCircle.radius = 6;
         secondCircle.fill = chart.colors.getIndex(8);
 
-
-        bullet.events.on("inited", function(event){
-          animateBullet(event.target.circle);
-        })
-
+        bullet.events.on("inited", function(event) {
+            animateBullet(event.target.circle);
+        });
 
         function animateBullet(bullet) {
-            var animation = bullet.animate([{ property: "scale", from: 1, to: 5 }, { property: "opacity", from: 1, to: 0 }], 1000, am4core.ease.circleOut);
-            animation.events.on("animationended", function(event){
-              animateBullet(event.target.object);
-            })
+            var animation = bullet.animate(
+                [
+                    { property: "scale", from: 1, to: 5 },
+                    { property: "opacity", from: 1, to: 0 }
+                ],
+                1000,
+                am4core.ease.circleOut
+            );
+            animation.events.on("animationended", function(event) {
+                animateBullet(event.target.object);
+            });
         }
-
-    }//end Mount
-
-
+    } //end Mount
 
     render() {
-        return (
-            <div id="chartdiv" className="globalGraph"></div>
-        );
+        return <div id="globalGraph" className="globalGraph"></div>;
     }
 }
