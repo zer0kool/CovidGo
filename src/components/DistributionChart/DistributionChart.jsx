@@ -2,7 +2,7 @@ import React, { Component, Fragment } from "react";
 
 import * as am4core from "@amcharts/amcharts4/core";
 import * as am4charts from "@amcharts/amcharts4/charts";
-import am4themes_animated from "@amcharts/amcharts4/themes/animated";
+import am4themes_animated from "@amcharts/amcharts4/themes/material";
 
 import "./DistributionChart.css";
 
@@ -111,7 +111,7 @@ export default class DistributionChart extends Component {
         });
 
         // Add cursor
-        chart.cursor = new am4charts.RadarCursor();
+        // chart.cursor = new am4charts.RadarCursor();
 
         this.chart = chart;
     }
