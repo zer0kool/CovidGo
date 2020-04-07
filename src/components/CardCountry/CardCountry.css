@@ -28,7 +28,11 @@
 
 .CardCountry .container_country .left .flag_country img {
   height: 35px;
-  width: auto; }
+  width: 48px;
+  -o-object-fit: cover;
+  object-fit: cover;
+  -o-object-position: center;
+  object-position: center; }
 
 .CardCountry .container_country .left .data_country {
   display: -webkit-box;
@@ -70,3 +74,8 @@ flex-direction: column; */
 .flag_country img {
   -webkit-box-shadow: 0 8px 6px -6px black;
   box-shadow: 0 8px 6px -6px black; }
+
+.flag_country {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex; }

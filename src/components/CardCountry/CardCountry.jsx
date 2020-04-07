@@ -19,11 +19,7 @@ export default class CardCountry extends Component {
                     <div className="container_country">
                         <div className="left">
                             <div className="flag_country">
-                                <img
-                                    //src="https://coronastatistics.live/assets/flags/mx.svg"
-                                    src="https://coronastatistics.live/assets/flags/unknown.svg"
-                                    alt=""
-                                />
+                                <img src={this.props.flagCode} alt={country} />
                             </div>
                             <div className="data_country">
                                 <span className="name_country">{country}</span>

@@ -5,6 +5,7 @@ import "./TopStats.css";
 
 //components
 import StatCard from "../StatCard/StatCard"
+import GlobalGraph from "../GlobalGraph/GlobalGraph"
 
 export default class TopStats extends Component {
     constructor(props) {
@@ -64,13 +65,13 @@ export default class TopStats extends Component {
                     return yesturday.toString();
                 }
                 let yesturdayStats = globalStatsResponse[getYesterdaysDate()]
-                console.log(globalStatsResponse[getYesterdaysDate()]);
+//                console.log(globalStatsResponse[getYesterdaysDate()]);
 
                 this.setState({
                     globalTimeline: globalStatsResponse,
                     yesturdayGlobal: yesturdayStats
                 });
-                console.log(globalStatsResponse);
+//                console.log(globalStatsResponse);
             }catch(error){
                 console.error(error);
             }
