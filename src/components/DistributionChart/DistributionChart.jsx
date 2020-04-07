@@ -30,7 +30,6 @@ export default class DistributionChart extends Component {
         let chart = am4core.create("chartdiv", am4charts.RadarChart);
 
         // Add data
-        console.log("PORCENTAJE:");
         chart.data = [
             {
                 category: "Critical - PENDING",

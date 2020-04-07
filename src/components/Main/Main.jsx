@@ -22,7 +22,6 @@ export default class Main extends Component {
     }
 
     render() {
-        console.log(this.state);
         return (
             <div className="Main">
                 {this.state.affectedCountries.length > 0 ? (

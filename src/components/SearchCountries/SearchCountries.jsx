@@ -30,7 +30,12 @@ export default class SearchCountries extends Component {
     };
 
     sortCountries = () => {
-        console.log("Sort");
+        let sort = this.state.countries.sort((a, b) => {
+            return a.cases < b.cases ? 1 : -1;
+        });
+        this.setState({
+            countries: sort
+        });
     };
 
     render() {
@@ -58,5 +63,8 @@ export default class SearchCountries extends Component {
                 </div>
             </div>
         );
+    }
+    componentDidMount() {
+        this.sortCountries();
     }
 }
