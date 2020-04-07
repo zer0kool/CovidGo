@@ -3,6 +3,7 @@
   margin-top: 10px;
   padding: 10px;
   font-size: 16px;
+<<<<<<< HEAD
   cursor: pointer; }
   .CardCountry .container_country {
     display: flex;
@@ -29,3 +30,81 @@
     .CardCountry .container_country .right .today_data_country {
       display: flex;
       flex-direction: column; }
+=======
+  cursor: pointer;
+  background-color: #2323232e;
+  border-radius: 5px; }
+
+.CardCountry .container_country {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -ms-flex-flow: wrap;
+  flex-flow: wrap;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column; }
+
+.CardCountry .container_country .left {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex; }
+
+.CardCountry .container_country .left .flag_country img {
+  height: 35px;
+  width: 48px;
+  -o-object-fit: cover;
+  object-fit: cover;
+  -o-object-position: center;
+  object-position: center; }
+
+.CardCountry .container_country .left .data_country {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  padding: 0 10px; }
+
+.CardCountry .container_country .left .data_country span {
+  line-height: 1;
+  display: inline-block; }
+
+.CardCountry .container_country .left .data_country .name_country {
+  font-weight: bold;
+  font-size: 1.3em; }
+
+.CardCountry .container_country .left .data_country .cases_data_country span {
+  font-size: 1em;
+  margin-right: 8px; }
+
+.CardCountry .container_country .right .today_data_country {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  /* -ms-flex-direction: column;
+  flex-direction: column;
+flex-direction: column; */
+  -ms-flex-flow: row-reverse;
+  flex-flow: row-reverse; }
+
+.flag_country img {
+  -webkit-box-shadow: 0 8px 6px -6px black;
+  box-shadow: 0 8px 6px -6px black; }
+
+.flag_country {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex; }
+>>>>>>> c0efa6b4603bb6be63f11a2bacc36e421789e092

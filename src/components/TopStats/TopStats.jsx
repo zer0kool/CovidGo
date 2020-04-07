@@ -5,6 +5,7 @@ import "./TopStats.css";
 
 //components
 import StatCard from "../StatCard/StatCard"
+import GlobalGraph from "../GlobalGraph/GlobalGraph"
 
 export default class TopStats extends Component {
     constructor(props) {
@@ -34,7 +35,7 @@ export default class TopStats extends Component {
     }
 
     async componentDidMount() {
-        let totalStatsEndPoint = "http://api.coronastatistics.live/all";
+        let totalStatsEndPoint = "https://api.coronastatistics.live/all";
         let globalStatsEndPoint = "https://api.coronastatistics.live/timeline/global"
 
         let totalStatsCall = await fetch(totalStatsEndPoint);
@@ -64,13 +65,13 @@ export default class TopStats extends Component {
                     return yesturday.toString();
                 }
                 let yesturdayStats = globalStatsResponse[getYesterdaysDate()]
-                console.log(globalStatsResponse[getYesterdaysDate()]);
+//                console.log(globalStatsResponse[getYesterdaysDate()]);
 
                 this.setState({
                     globalTimeline: globalStatsResponse,
                     yesturdayGlobal: yesturdayStats
                 });
-                console.log(globalStatsResponse);
+//                console.log(globalStatsResponse);
             }catch(error){
                 console.error(error);
             }
