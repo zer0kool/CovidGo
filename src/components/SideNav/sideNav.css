@@ -1,75 +1,71 @@
 /*lo escondere por el momento*/
-
 .btn-floating.btn-large {
-    position: fixed;
-}
+  position: fixed; }
+
 .sidenav {
-    position: fixed;
-    width: 100%;
-    background-color: #30393d;
-    color: #fff;
-}
+  position: fixed;
+  width: 100%;
+  background-color: #30393d;
+  color: #fff; }
 
 .navbtn.sidenav-close {
-    margin: 20px;
-    border: 1px solid #2a3235;
-    background-color: #3a4246;
-    color: white;
-    border-radius: 5px;
-    font-size: 1.5rem;
-    padding: 10px;
-    font-weight: 600;
-    text-align: center;
-    width: 100px
-}
-.sidenav-trigger{
-    background-color: #b70d00d1 !important;}
-.navList{
-    margin-top: 30px;
-}
+  margin: 20px;
+  border: 1px solid #2a3235;
+  background-color: #3a4246;
+  color: white;
+  border-radius: 5px;
+  font-size: 1.5rem;
+  padding: 10px;
+  font-weight: 600;
+  text-align: center;
+  width: 100px; }
+
+.sidenav-trigger {
+  background-color: #b70d00d1 !important; }
+
+.navList {
+  margin-top: 30px; }
+
 .navtop {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: reverse;
-    -ms-flex-direction: row-reverse;
-    flex-direction: row-reverse;
-    -webkit-box-pack: justify;
-    -ms-flex-pack: justify;
-    justify-content: space-between;
-}
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+  -ms-flex-direction: row-reverse;
+  flex-direction: row-reverse;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between; }
+
 .menutitle {
-    padding-left: 30px;
-}
+  padding-left: 30px; }
+
 .menuitem {
-    color: white!important;
-    font-size: 1.2rem!important;
-    font-weight: 500;
-    height: 48px;
-    line-height: 48px;
-    padding: 0 32px;
-}
+  color: white !important;
+  font-size: 1.2rem !important;
+  font-weight: 500;
+  height: 48px;
+  line-height: 48px;
+  padding: 0 32px; }
+
 .collapsible-body {
-    padding: 0 30px 30px 30px!important;
-}
+  padding: 0 30px 30px 30px !important; }
+
 .item {
-    border-bottom: 1px solid #3a4246;
-}
+  border-bottom: 1px solid #3a4246; }
 
 .card {
-    background-color: #293235;
-}
+  background-color: #293235; }
 
 .card.horizontal .card-image {
-    max-width: 30%;
-    height: 200px;
-    overflow: hidden;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    opacity: 0.70;
-}
+  max-width: 30%;
+  height: 200px;
+  overflow: hidden;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  opacity: 0.70; }
+
 .card.horizontal {
-    border-radius: 10px;
-}
+  border-radius: 10px; }
