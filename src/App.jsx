@@ -10,7 +10,6 @@ import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import Main from "./components/Main/Main";
 import Notfound from "./components/Notfound/Notfound";
-import TopStats from "./components/TopStats/TopStats";
 import SideNav from "./components/SideNav/SideNav";
 
 function App() {

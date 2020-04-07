@@ -66,6 +66,7 @@ export default class Main extends Component {
         let totalCasesToday = 0;
         this.state.data.map((country) => {
             totalCasesToday += country.todayCases;
+            return true;
         });
         return totalCasesToday;
     };
@@ -74,6 +75,7 @@ export default class Main extends Component {
         let totalDeathsToday = 0;
         this.state.data.map((country) => {
             totalDeathsToday += country.todayDeaths;
+            return true;
         });
         return totalDeathsToday;
     };

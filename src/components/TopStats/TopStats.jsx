@@ -5,7 +5,7 @@ import "./TopStats.css";
 
 //components
 import StatCard from "../StatCard/StatCard";
-import GlobalGraph from "../GlobalGraph/GlobalGraph";
+// import GlobalGraph from "../GlobalGraph/GlobalGraph";
 
 export default class TopStats extends Component {
     constructor(props) {
