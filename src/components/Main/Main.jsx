@@ -95,8 +95,8 @@ export default class Main extends Component {
     };
     async componentDidMount() {
         try {
-            let urlAll = "http://api.coronastatistics.live/all";
-            let urlCountries = "http://api.coronastatistics.live/countries"; //URL
+            let urlAll = "https://api.coronastatistics.live/all";
+            let urlCountries = "https://api.coronastatistics.live/countries"; //URL
 
             let responseAll = await fetch(urlAll); //Obtengo los valores de la API
             let responseCountries = await fetch(urlCountries); //Obtengo los valores de la API
