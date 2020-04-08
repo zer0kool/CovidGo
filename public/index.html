@@ -5,16 +5,10 @@
         <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="theme-color" content="#000000" />
-        <meta
-            name="description"
-            content="Web site created using create-react-app"
-        />
+        <meta name="description" content="Web site created using create-react-app"/>
         <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
         <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-        <link
-            href="https://fonts.googleapis.com/icon?family=Material+Icons"
-            rel="stylesheet"
-        />
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
         <title>CovidGo</title>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
@@ -28,5 +22,17 @@
     <body>
         <noscript>You need to enable JavaScript to run this app.</noscript>
         <div id="root"></div>
+
+        <!-- Materialize depends on jQuery -->
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+
+        <!-- Compiled and minified JavaScript, either we keep it here or import it as a modeul in react -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+        <!-- this probably needs to be added to a js file eg: init.js -->
+        <script>
+            $(document).ready(function(){$('.sidenav').sidenav({preventScrolling: true});});
+            $(document).ready(function(){$('.collapsible').collapsible();});
+        </script>
     </body>
 </html>

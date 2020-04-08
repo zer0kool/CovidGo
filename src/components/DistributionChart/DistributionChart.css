@@ -3,10 +3,8 @@
   border-bottom: 4px solid #828282;
   background-color: rgba(67, 77, 75, 0.34);
   border-radius: 10px; }
-
-.DistributionChartContainer h4 {
-  padding: 10px;
-  margin: 0; }
-
-.DistributionChartContainer .DistributionChart {
-  height: 500px; }
+  .DistributionChartContainer h4 {
+    padding: 10px;
+    margin: 0; }
+  .DistributionChartContainer .DistributionChart {
+    height: 500px; }
