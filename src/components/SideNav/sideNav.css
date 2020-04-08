@@ -68,4 +68,7 @@
   opacity: 0.70; }
 
 .card.horizontal {
-  border-radius: 10px; }
+  border-radius: 10px;
+    height: 160px;
+    overflow: hidden;
+}
