@@ -1,25 +1,36 @@
-.cardx {
-  border-radius: 5px;
+.card.activator {
+  border-radius: 2px;
   border-bottom: 4px solid #828282;
   color: white;
   min-height: 180px;
-  background-color: rgba(67, 77, 75, 0.34);
-  width: 47vw;
-  margin: 5px;
-  padding: 15px 30px;
+  background-color: #29323582;
+  width: 46vw;
+  margin: 5px 0;
+  padding: 15px;
   box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034), 0 6.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.5px 10px rgba(0, 0, 0, 0.06), 0 22.3px 17.9px rgba(0, 0, 0, 0.072), 0 41.8px 33.4px rgba(0, 0, 0, 0.086), 0 100px 80px rgba(0, 0, 0, 0.12); }
-  .cardx .cardxContainer span {
-    font-size: 1.5rem;
-    display: flex;
-    line-height: 1; }
-  .cardx .cardxContainer h3 {
-    text-align: center;
-    font-size: 2.7rem; }
-  .cardx .cardxContainer p {
-    color: #a2a2a2;
-    font-size: 14px;
-    text-align: end;
-    font-weight: 500; }
-    .cardx .cardxContainer p i.material-icons {
-      margin-right: 5px;
-      font-size: inherit !important; }
+
+.card.activator .cardxContainer {
+  padding: 4px; }
+
+.card.activator .cardxContainer span {
+  font-size: 1.5rem;
+  display: flex;
+  line-height: 1; }
+
+.card.activator .cardxContainer h3 {
+  text-align: center;
+  font-size: 2.4rem; }
+
+.card.activator .cardxContainer p {
+  color: #a2a2a2;
+  font-size: 14px;
+  text-align: end;
+  font-weight: 500; }
+
+.card.activator .cardxContainer p i.material-icons {
+  margin-right: 5px;
+  font-size: inherit !important; }
+
+.card.activator .card-reveal {
+  background-color: #30393d;
+  padding: 4px; }

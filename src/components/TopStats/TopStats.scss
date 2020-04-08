@@ -4,16 +4,16 @@
     -ms-flex-wrap: wrap;
     flex-wrap: wrap;
     justify-content: space-evenly;
-    & > div:nth-child(1) > div {
-        border-bottom: 3px solid #21afdd;
+    & > div:nth-child(1) {
+        border-bottom: 4px solid #21afdd;
     }
-    & > div:nth-child(2) > div {
-        border-bottom: 3px solid #ff5b5b;
+    & > div:nth-child(2) {
+        border-bottom: 4px solid #ff5b5b;
     }
-    & > div:nth-child(3) > div {
-        border-bottom: 3px solid #10c469;
+    & > div:nth-child(3) {
+        border-bottom: 4px solid #10c469;
     }
-    & > div:nth-child(4) > div {
-        border-bottom: 3px solid #f9c851;
+    & > div:nth-child(4) {
+        border-bottom: 4px solid #f9c851;
     }
 }
