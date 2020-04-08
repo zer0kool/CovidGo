@@ -1,13 +1,14 @@
 $tablet: 768px;
 @mixin tablet {
-    @media ( min-width: #{$tablet} ) {
+    @media (min-width: #{$tablet} ) {
         @content;
     }
 }
 
 $desktop: 1200px;
+
 @mixin desktop {
-    @media ( min-width: #{$desktop} ) {
+    @media (min-width: #{$desktop} ) {
         @content;
     }
 }
@@ -18,17 +19,11 @@ $desktop: 1200px;
     grid-template-rows: auto;
     grid-gap: 20px;
     grid-template-columns: 1fr 1fr;
-    grid-template-areas:
-        "topStats topStats "
-        "searchCountries searchCountries"
-        "distributionChart distributionChart";
+    grid-template-areas: "topStats topStats " "searchCountries searchCountries" "distributionChart distributionChart";
 
     @include desktop() {
-        grid-template-columns: 1fr 1fr 1fr 1fr; //4 columns
-        grid-template-areas:
-            "topStats topStats topStats topStats"
-            "searchCountries searchCountries distributionChart distributionChart"
-            "searchCountries searchCountries distributionChart distributionChart";
+        grid-template-columns: 1fr 1fr 1fr 1fr; // 4 columns
+        grid-template-areas: "topStats topStats topStats topStats" "searchCountries searchCountries distributionChart distributionChart" "searchCountries searchCountries distributionChart distributionChart";
     }
 
     .topStatsCotainer {
