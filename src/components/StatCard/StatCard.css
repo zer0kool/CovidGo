@@ -33,4 +33,10 @@
 
 .card.activator .card-reveal {
   background-color: #30393d;
-  padding: 4px; }
+  padding: 4px;
+  overflow: hidden; }
+
+.card.activator .card-reveal .graph {
+  display: flex;
+  align-items: center;
+  justify-content: center; }

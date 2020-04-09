@@ -1,0 +1,19 @@
+$tablet: 768px;
+@mixin tablet {
+    @media (min-width: #{$tablet} ) {
+        @content;
+    }
+} 
+
+
+.globalGraph{
+  height: 160px;
+  
+}
+
+@include tablet() {
+  .globalGraph{
+
+    width: 70%;
+  }
+}

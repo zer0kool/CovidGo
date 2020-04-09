@@ -1,3 +1,11 @@
+$tablet: 768px;
+@mixin tablet {
+    @media (min-width: #{$tablet} ) {
+        @content;
+    }
+} 
+
+
 .CardCountry {
   border-bottom: 1px solid #333b3b;
   margin: 10px 3px;
@@ -5,68 +13,125 @@
   font-size: 16px;
   cursor: pointer;
   background-color: #2323232e;
-  border-radius: 5px; }
+  border-radius: 5px;
 
-.CardCountry .container_country {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-  -ms-flex-flow: wrap;
-  flex-flow: wrap;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: column;
-  flex-direction: column; }
+  .container_country {
+    display: flex;
+    // justify-content: space-between;
+    flex-direction: column;
 
-.CardCountry .container_country .left {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex; }
+    
+    .left {
+      display: flex;
+      flex-direction: column;
 
-.CardCountry .container_country .left .flag_country img {
-  height: 35px;
-  width: auto; }
+      width: 100%;
+      .flag_country{
+        display: flex;
+        justify-content: center;
+        img {
+         height: 35px;
+         width: 50px;
+         box-shadow: 0 8px 6px -6px black;
+         object-fit: cover;
+       }
+      }
 
-.CardCountry .container_country .left .data_country {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  -webkit-box-pack: start;
-  -ms-flex-pack: start;
-  justify-content: flex-start;
-  padding: 0 10px; }
+      .data_country {
+        display: flex;
+        flex-direction: column;  
 
-.CardCountry .container_country .left .data_country span {
-  line-height: 1;
-  display: inline-block; }
+        .name_country {
+          font-weight: bold;
+          text-align: center;
+          font-size: 1.3em;
+        }
 
-.CardCountry .container_country .left .data_country .name_country {
-  font-weight: bold;
-  font-size: 1.3em; }
+        .cases_data_country {
+          display: flex;
+          justify-content: space-evenly;
+          
+        }
+      }
+    }
 
-.CardCountry .container_country .left .data_country .cases_data_country span {
-  font-size: 1em;
-  margin-right: 8px; }
+    .right{
+      margin-top: 5px;
+      .today_data_country{
+        display: flex;        
+        justify-content: space-evenly;
+        .today_data_country_number{          
+          i{
+            
+            padding-top: 5px;
+            margin-right: 5px;
+            display:inline-block;
+          }
+        }
+      }
+    }
+    .title{      
+      display: inline-block;
+      width: 60px;
+    }
+    .data{
+      width: 120px;
+    }    
 
-.CardCountry .container_country .right .today_data_country {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  /* -ms-flex-direction: column;
-  flex-direction: column;
-flex-direction: column; */
-  -ms-flex-flow: row-reverse;
-  flex-flow: row-reverse; }
+    
+  }
 
-.flag_country img {
-  -webkit-box-shadow: 0 8px 6px -6px black;
-  box-shadow: 0 8px 6px -6px black; }
+  @include tablet() {
+    .container_country {
+      display: flex;
+      // justify-content: space-between;
+      flex-direction: row;
+      span{
+        line-height: 1;
+      }
+      .left {
+        display: flex;
+        flex-direction: row;
+        .flag_country{          
+          
+          
+        }
+  
+        .data_country {
+          display: flex;
+          flex-direction: column;  
+          padding-left: 10px;
+          .name_country {
+            text-align: left;
+            }
+          
+          .cases_data_country {
+            display: flex;
+            justify-content: space-evenly;
+            margin-top: 5px;
+            
+          }
+        }
+      }
+      .right{
+        margin-top: 0px;
+        display: flex;
+        align-items: flex-end;
+        .today_data_country{
+          display: flex;        
+          justify-content: space-evenly;
+          .today_data_country_number{          
+            i{
+              
+              padding-top: 0px;
+              margin-right: 10px;
+              display:inline-block;
+            }
+          }
+        }
+      }
+    }
+
+
+  }
+}

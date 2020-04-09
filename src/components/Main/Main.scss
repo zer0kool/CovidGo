@@ -26,6 +26,10 @@ $desktop: 1200px;
         grid-template-areas: "topStats topStats topStats topStats" "searchCountries searchCountries distributionChart distributionChart" "searchCountries searchCountries distributionChart distributionChart";
     }
 
+    .test {
+        grid-area: test;
+    }
+
     .topStatsCotainer {
         grid-area: topStats;
     }
