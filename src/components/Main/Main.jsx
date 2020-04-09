@@ -5,6 +5,7 @@ import "./Main.css";
 //Components
 import Loading from "../Loading/Loading";
 import SearchCountries from "../SearchCountries/SearchCountries";
+//import GlobalChart from "../GlobalChart/GlobalChart";
 import DistributionChart from "../DistributionChart/DistributionChart";
 import TopStats from "../TopStats/TopStats";
 
