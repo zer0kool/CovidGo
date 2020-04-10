@@ -1,10 +1,19 @@
 import React, { Component } from "react";
 
+
+import GlobalGraph from "../GlobalGraph/GlobalGraph"
 //CSS
 import "./StatCard.css";
 
 export default class TopStats extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            dataGraph :(this.props.dataGraph)?this.props.dataGraph:[]
+        };
+    }
     render() {
+
         return (
             <div className="card activator">
                 <div className="cardxContainer card-content">
@@ -22,7 +31,11 @@ export default class TopStats extends Component {
                 </div>
                 <div className="card-reveal">
                       <span className="card-title grey-text text-darken-4">{this.props.label}<i className="material-icons right">close</i></span>
-                      <p>GRAPH DATA HERE</p>
+                        <div className="graph">
+                            <GlobalGraph idGraph={this.props.idGraph} data= {this.props.dataGraph} />
+                        </div>
+
+
                 </div>
             </div>
         );
