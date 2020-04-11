@@ -3,11 +3,15 @@
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
   justify-content: space-evenly; }
-  .top-container > div:nth-child(1) {
-    border-bottom: 4px solid #21afdd; }
-  .top-container > div:nth-child(2) {
-    border-bottom: 4px solid #ff5b5b; }
-  .top-container > div:nth-child(3) {
-    border-bottom: 4px solid #10c469; }
-  .top-container > div:nth-child(4) {
-    border-bottom: 4px solid #f9c851; }
+
+.top-container > div:nth-child(1) {
+  border-bottom: 4px solid #21afdd; }
+
+.top-container > div:nth-child(2) {
+  border-bottom: 4px solid #ff5b5b; }
+
+.top-container > div:nth-child(3) {
+  border-bottom: 4px solid #10c469; }
+
+.top-container > div:nth-child(4) {
+  border-bottom: 4px solid #f9c851; }

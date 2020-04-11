@@ -9,59 +9,51 @@
   width: 100%;
   background-color: #30393d;
   color: #fff; }
-
-.sidenav .navtop {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: reverse;
-  -ms-flex-direction: row-reverse;
-  flex-direction: row-reverse;
-  -webkit-box-pack: justify;
-  -ms-flex-pack: justify;
-  justify-content: space-between; }
-
-.sidenav .navtop .menutitle {
-  padding-left: 30px; }
-
-.sidenav .navtop .navbtn.sidenav-close {
-  margin: 20px;
-  border: 1px solid #2a3235;
-  background-color: #3a4246;
-  color: white;
-  border-radius: 5px;
-  font-size: 1.5rem;
-  padding: 10px;
-  font-weight: 600;
-  text-align: center;
-  width: 100px; }
-
-.sidenav .navList .menuitem, .sidenav .collapsible .menuitem {
-  color: white !important;
-  font-size: 1.2rem !important;
-  font-weight: 500;
-  height: 48px;
-  line-height: 48px;
-  padding: 0 32px; }
-
-.sidenav .navList .item, .sidenav .collapsible .item {
-  border-bottom: 1px solid #3a4246; }
-
-.sidenav .card.horizontal {
-  border-radius: 10px;
-  height: 160px;
-  overflow: hidden;
-  background-color: #293235; }
-
-.sidenav .card.horizontal .card-image {
-  max-width: 30%;
-  height: 200px;
-  overflow: hidden;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  opacity: 0.70; }
-
-.sidenav .collapsible-body {
-  padding: 0 30px 30px 30px !important; }
+  .sidenav .navtop {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: reverse;
+    -ms-flex-direction: row-reverse;
+    flex-direction: row-reverse;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between; }
+    .sidenav .navtop .menutitle {
+      padding-left: 30px; }
+    .sidenav .navtop .navbtn.sidenav-close {
+      margin: 20px;
+      border: 1px solid #2a3235;
+      background-color: #3a4246;
+      color: white;
+      border-radius: 5px;
+      font-size: 1.5rem;
+      padding: 10px;
+      font-weight: 600;
+      text-align: center;
+      width: 100px; }
+  .sidenav .navList .menuitem, .sidenav .collapsible .menuitem {
+    color: white !important;
+    font-size: 1.2rem !important;
+    font-weight: 500;
+    height: 48px;
+    line-height: 48px;
+    padding: 0 32px; }
+  .sidenav .navList .item, .sidenav .collapsible .item {
+    border-bottom: 1px solid #3a4246; }
+  .sidenav .card.horizontal {
+    border-radius: 10px;
+    height: 160px;
+    overflow: hidden;
+    background-color: #293235; }
+    .sidenav .card.horizontal .card-image {
+      max-width: 30%;
+      height: 200px;
+      overflow: hidden;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      opacity: 0.70; }
+  .sidenav .collapsible-body {
+    padding: 0 30px 30px 30px !important; }
