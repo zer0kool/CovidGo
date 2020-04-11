@@ -1,0 +1,8 @@
+.symptomsChart {
+  height: 455px;
+  overflow: hidden;
+  margin-bottom: 30px; }
+
+.symptomsChart #symptoms {
+  width: 100%;
+  height: 500px; }

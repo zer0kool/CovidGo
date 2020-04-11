@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 
+import SymptomsChart from "../SymptomsChart/SymptomsChart"
+
 import "./sideNav.css";
 
 export default class SideNav extends Component {
@@ -21,7 +23,7 @@ export default class SideNav extends Component {
                   <a href="#!" className="menuitem"><i className="material-icons white-text">cloud</i>What is Covid-19</a>
             </li>
             </ul>
-
+            <SymptomsChart />
             <div className="row">
               <div className="col s12 m4">
                 <div className="card horizontal">
