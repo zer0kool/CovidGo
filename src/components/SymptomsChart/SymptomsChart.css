@@ -6,3 +6,7 @@
 .symptomsChart #symptoms {
   width: 100%;
   height: 500px; }
+
+div#infectedGraph {
+  width: 200px;
+  left: -100px; }
