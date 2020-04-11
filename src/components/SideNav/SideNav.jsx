@@ -32,10 +32,10 @@ export default class SideNav extends Component {
                   </div>
                   <div className="card-stacked">
                     <div className="card-content">
-                      <p>I am a very simple card. I am good at containing small bits of information.</p>
+                      <p> This Q&A will be updated as more is known about COVID-19, how it spreads and how it is affecting people worldwide.</p>
                     </div>
                     <div className="card-action">
-                      <a href="#">This is a link</a>
+                      <a href="https://www.who.int/news-room/q-a-detail/q-a-coronaviruses">www.who.int</a>
                     </div>
                   </div>
                 </div>
@@ -48,10 +48,10 @@ export default class SideNav extends Component {
                   </div>
                   <div className="card-stacked">
                     <div className="card-content">
-                      <p>I am a very simple card. I am good at containing small bits of information.</p>
+                      <p>"Solidarity” is an international clinical trial to help find an effective treatment for COVID-19, launched by the World Health Organization and partners.</p>
                     </div>
                     <div className="card-action">
-                      <a href="#">This is a link</a>
+                      <a href="https://www.who.int/emergencies/diseases/novel-coronavirus-2019/global-research-on-novel-coronavirus-2019-ncov/solidarity-clinical-trial-for-covid-19-treatments">www.who.int</a>
                     </div>
                   </div>
                 </div>
@@ -68,7 +68,7 @@ export default class SideNav extends Component {
               <div className="collapsible-body blue-grey darken-4"><span>Lorem ipsum dolor sit amet.</span></div>
             </li>
             <li className="item">
-              <div className="collapsible-header menuitem blue-grey darken-4"><i className="material-icons">whatshot</i>Privacy</div>
+              <div className="collapsible-header menuitem blue-grey darken-4"><i className="material-icons">whatshot</i>DATA Resources</div>
               <div className="collapsible-body blue-grey darken-4"><span>Lorem ipsum dolor sit amet.</span></div>
             </li>
           </ul>
