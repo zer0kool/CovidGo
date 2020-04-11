@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 import SymptomsChart from "../SymptomsChart/SymptomsChart"
 
-import "./sideNav.css";
+import "./SideNav.css";
 
 export default class SideNav extends Component {
   render() {
