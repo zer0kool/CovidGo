@@ -16,7 +16,7 @@ const CountryData = (props) => {
   useEffect( ()=>{
 
     const getCountryData = async () =>{
-        let URL_API = 'http://api.coronastatistics.live/countries'
+        let URL_API = 'https://api.coronastatistics.live/countries'
         let response = await  fetch(`${URL_API}/${name.toLowerCase()}`)
         response = await response.json();
         setCountryData(response)
