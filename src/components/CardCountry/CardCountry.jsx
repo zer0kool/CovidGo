@@ -19,6 +19,7 @@ export default class CardCountry extends Component {
 
         return (
             <div className="CardCountry">
+
                 {
                     <div className="container_country">
                         <div className="left">

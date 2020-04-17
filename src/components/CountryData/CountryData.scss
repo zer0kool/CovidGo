@@ -1,0 +1,14 @@
+.countryData_container{
+  padding: 20px;
+  .country_header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    .flag{
+      height: 180px;
+      width: 250px;
+      object-fit: cover;
+    }
+  }
+}
