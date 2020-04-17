@@ -56,7 +56,7 @@ export default class TopStats extends Component {
                     todayStats={` ${this.props.totalRemaining.toLocaleString()} remaining`}
                     dataGraph={this.state.dataRecoveredGraph}
                     idGraph={"recoveredGraph"}
-
+                />
                 <StatCard
                     icon="airline_seat_flat"
                     label="Critical"
