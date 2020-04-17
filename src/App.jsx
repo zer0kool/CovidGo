@@ -9,6 +9,7 @@ import "materialize-css/dist/css/materialize.min.css";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import Main from "./components/Main/Main";
+import CountryData from './components/CountryData/CountryData'
 import Notfound from "./components/Notfound/Notfound";
 import SideNav from "./components/SideNav/SideNav";
 
@@ -22,6 +23,7 @@ function App() {
             <main>
                 <Switch>
                     <Route exact path="/" component={Main} />
+                    <Route exact path="/country/:name/:code" component={CountryData} />
                     <Route component={Notfound} />
                 </Switch>
             </main>

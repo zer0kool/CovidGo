@@ -19,13 +19,14 @@ export default class CardCountry extends Component {
 
         return (
             <div className="CardCountry">
+                
                 {
                     <div className="container_country">
                         <div className="left">
                             <div className="flag_country">
                                 <img src={this.props.flagCode} alt={country} />
                             </div>
-                            <div className="data_country">
+                            <div className="data_country">                                
                                 <span className="name_country">{country}</span>
                                 <div className="cases_data_country">
                                     <span className="white-text title">Total</span>

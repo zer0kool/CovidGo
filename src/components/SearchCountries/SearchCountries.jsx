@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-
+import {Link} from "react-router-dom"
 //CSS
 import "./SearchCountries.css";
 
@@ -307,17 +307,16 @@ export default class SearchCountries extends Component {
                 <div className="countryList">
                     {this.state.countries.length > 0 ? (
                         this.state.countries.map((country, index) => {
-                            let flagSrc = `https://coronastatistics.live/assets/flags/${
-                                this.state.flags[country.country]
-                                    ? this.state.flags[country.country]
-                                    : "unknown"
-                            }.svg`;
-                            return (
-                                <CardCountry
-                                    flagCode={`${flagSrc.toLowerCase()}`}
-                                    country={country}
-                                    key={index}
-                                />
+                            let flagCode = (this.state.flags[country.country]) ? this.state.flags[country.country]: "unknown"
+                            let flagSrc = `https://coronastatistics.live/assets/flags/${flagCode}.svg`;
+                            return (   
+                                <Link to={`country/${country.country}/${ flagCode }`} key={index}>
+                                    <CardCountry
+                                        flagCode={`${flagSrc.toLowerCase()}`}
+                                        country={country}
+                                        
+                                    />
+                                </Link>                            
                             );
                         })
                     ) : (

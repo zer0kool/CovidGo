@@ -21,7 +21,6 @@ export default class TopStats extends Component {
 
     render() {
         const { cases, deaths, recovered } = this.props.allInformation;
-
         return (
             
                 
@@ -49,14 +48,14 @@ export default class TopStats extends Component {
                     icon="healing"
                     label="Recovered"
                     totalStats={recovered.toLocaleString()}
-                    todayStats={`Today ${this.props.totalRemaining.toLocaleString()} recovered`}
+                    todayStats={` ${this.props.totalRemaining.toLocaleString()} remaining`}
                     dataGraph={this.state.dataRecoveredGraph}
                     idGraph={"recoveredGraph"}
                 />
                 <StatCard
                     icon="airline_seat_flat"
                     label="Critical"
-                    totalStats="NEED"
+                    totalStats="..."
                     icon2="group_add"
                     todayStats={0}
                 />
