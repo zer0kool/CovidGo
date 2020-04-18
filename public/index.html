@@ -2,17 +2,79 @@
 <html lang="en">
     <head>
         <meta charset="utf-8" />
-        <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+        <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+        <meta name="description" content="CovidGo, tracking covid-19 cases from all the world."/>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="theme-color" content="#000000" />
-        <meta name="description" content="Web site created using create-react-app"/>
-        <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
-        <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
         <title>CovidGo</title>
+
+        <!--  Essential Adding to homescreen -->
+        <link href="covidgo.png"  rel="apple-touch-startup-image" />
+        <link rel="apple-touch-icon" sizes="180x180" href="%PUBLIC_URL%/pwa/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="%PUBLIC_URL%/pwa/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/%PUBLIC_URL%pwa/favicon-16x16.png">
+        <link rel="manifest" href="%PUBLIC_URL%/pwa/site.webmanifest">
+        <link rel="mask-icon" href="%PUBLIC_URL%/pwa/safari-pinned-tab.svg" color="#5bbad5">
+        <link rel="shortcut icon" href="%PUBLIC_URL%/pwa/favicon.ico">
+        <meta name="msapplication-TileColor" content="#da532c">
+        <meta name="msapplication-config" content="%PUBLIC_URL%/pwa/browserconfig.xml">
+
+
+        <!--  Essential Social META Tags -->
+        <meta property="og:title" content="Covid-19 Live Tracker">
+        <meta property="og:description" content="CovidGo, tracking covid-19 cases from all the world.">
+        <meta property="og:image" content="%PUBLIC_URL%/thumbnail.jpg">
+        <meta property="og:url" content="%PUBLIC_URL%">
+        <meta name="twitter:card" content="summary_large_image">
+
+        <!--  Non-Essential, But Recommended -->
+        <meta property="og:site_name" content="CovidGo">
+        <meta name="twitter:image:alt" content="CovidGo, tracking covid-19 cases from all the world.">
+
+        <!--  Non-Essential, But Required for Analytics -->
+        <meta property="fb:app_id" content="589261915017174" />
+        <meta name="twitter:site" content="@zer0nerd">
+
+        <!--  external resources -->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+
+        <!--  PWA splash screen (currently testing)-->
+        <link href="%PUBLIC_URL%/splashscreens/iphone5_splash.png" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image" />
+        <link href="%PUBLIC_URL%/splashscreens/iphone6_splash.png" media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image" />
+        <link href="%PUBLIC_URL%/splashscreens/iphoneplus_splash.png" media="(device-width: 621px) and (device-height: 1104px) and (-webkit-device-pixel-ratio: 3)" rel="apple-touch-startup-image" />
+        <link href="%PUBLIC_URL%/splashscreens/iphonex_splash.png" media="(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3)" rel="apple-touch-startup-image" />
+        <link href="%PUBLIC_URL%/splashscreens/iphonexr_splash.png" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image" />
+        <link href="%PUBLIC_URL%/splashscreens/iphonexsmax_splash.png" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3)" rel="apple-touch-startup-image" />
+        <link href="%PUBLIC_URL%/splashscreens/ipad_splash.png" media="(device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image" />
+        <link href="%PUBLIC_URL%/splashscreens/ipadpro1_splash.png" media="(device-width: 834px) and (device-height: 1112px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image" />
+        <link href="%PUBLIC_URL%/splashscreens/ipadpro3_splash.png" media="(device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image" />
+        <link href="%PUBLIC_URL%/splashscreens/ipadpro2_splash.png" media="(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image" />
+
+
     </head>
 
     <body>
+        <!-- Facebook snippet -->
+        <script>
+          window.fbAsyncInit = function() {
+            FB.init({
+              appId      : '589261915017174',
+              cookie     : true,
+              xfbml      : true,
+              version    : 'v6.0'
+            });
+
+            FB.AppEvents.logPageView();
+
+          };
+
+          (function(d, s, id){
+             var js, fjs = d.getElementsByTagName(s)[0];
+             if (d.getElementById(id)) {return;}
+             js = d.createElement(s); js.id = id;
+             js.src = "https://connect.facebook.net/en_US/sdk.js";
+             fjs.parentNode.insertBefore(js, fjs);
+           }(document, 'script', 'facebook-jssdk'));
+        </script>
         <noscript>You need to enable JavaScript to run this app.</noscript>
         <div id="root"></div>
 
