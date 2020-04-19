@@ -1,0 +1,420 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>
+	Mapa Interactivo COVID-19 en México
+</title><link rel="shortcut icon" type="image/x-icon" href="../favicon.ico" />
+ <script src="../Content/js/jquery-3.2.1.js"></script>
+    <script src="../Content/js/json2.js"></script>
+    <script type="text/javascript" src="https://www.amcharts.com/lib/3/amcharts.js"></script>
+    <script type="text/javascript" src="https://www.amcharts.com/lib/3/serial.js"></script>
+    <script src="https://www.amcharts.com/lib/4/core.js"></script>
+    <script src="https://www.amcharts.com/lib/4/charts.js"></script>
+    <script src="https://www.amcharts.com/lib/4/maps.js"></script>
+    <script src="https://www.amcharts.com/lib/4/themes/dataviz.js"></script>
+    <script src="https://www.amcharts.com/lib/4/themes/animated.js"></script>
+    
+<meta name="google-site-verification" content="cxVMrCiG4odEGuOpWDrfFka1_A-sKS7cqUIgZ26iDDY" />
+    
+
+    
+   <link href="../Content/css/ChartyLoad.css" rel="stylesheet" />
+    <style type="text/css">
+     .auto-style40 {
+        width: 1080px;
+        border: 1px solid black;
+    }
+		a:link, a:visited {
+  background-color: #9A324F;
+  color: white;
+  padding: 14px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+}
+
+a:hover, a:active {
+  background-color: #9A324F;
+}
+    </style>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            cargarDatos();
+        });
+
+        function cargarDatos() {am4core.useTheme(am4themes_animated);
+            $.ajax({
+                type: "POST",
+                contentType: "application/json; charset=utf-8",
+                url: "Log.aspx/Grafica22",
+                data: "{}",
+                datatype: "json",
+                success: llenarChart21,
+                error: function ajaxError(result) {
+                    alert(result.status + ' : ' + result.statusText);
+                }
+            });
+        }
+
+        function crearlabel(chart, x, y, text, color, tam) {
+            var label = chart.createChild(am4core.Label);
+            label.text=text;
+            label.background.fill = am4core.color(color);
+            label.background.fillOpacity = 0.8;
+            label.fontSize=tam;
+            label.align="middle";
+            label.isMesasured=false;
+            label.x=x;
+            label.y=y;
+        }
+
+function crearlabelnumero(chart, x, y, text, color, tam) {
+            var label = chart.createChild(am4core.Label);
+            label.text = text;
+            label.background.fill = am4core.color(color);
+            label.background.fillOpacity = 0.8;
+            label.fontSize=tam;
+            label.align="middle";
+            label.isMesasured=false;
+            label.x=x;
+            label.y=y;
+        }
+
+
+ function crearlabelCOLOR(chart, x, y, text, color, tam) {
+            var label = chart.createChild(am4core.Label);
+            label.text=text;
+            label.background.fill = am4core.color(color);
+            label.background.fillOpacity = 0.8;
+            label.fontSize=tam;
+            label.align="middle";
+            label.isMesasured=false;
+            label.x=x;
+            label.y=y;
+        }
+
+
+        function QuitaCarga(elemento) {
+            var Carga = document.getElementById(elemento); 
+            Carga.parentElement.removeChild(Carga);
+        }
+
+        function CreaExport(chart, Nombre) {
+            chart.exporting.menu = new am4core.ExportMenu();
+            chart.exporting.menu.items = [{
+                "label": "",
+                "menu": [
+                    {
+                        "label": "Imagen",
+                        "menu": [
+						
+                            { "type": "png", "label": "PNG" },
+                            { "type": "jpg", "label": "JPG" },
+                            { "type": "gif", "label": "GIF" },
+                            { "type": "pdf", "label": "PDF" }
+                        ]
+                    }, {
+                        "label": "Datos",
+                        "menu": [
+                            { "type": "csv", "label": "CSV" },
+                            { "type": "xlsx", "label": "XLSX" }
+                        ]
+                    }, {
+                        "label": "Imprimir", "type": "print"
+                    }
+                ]
+            }];
+            chart.exporting.filePrefix = Nombre;
+        }
+
+
+        function llenarChart21(response) {
+            var map = am4core.create("chart21", am4maps.MapChart);
+            map.geodataSource.url = "../coronavirus/Mexico_Estados.json";
+            map.projection = new am4maps.projections.Miller();
+            var lista = $.parseJSON(response.d);
+            var pobtotal = 0;
+            var casostotal = 0;
+            var title = Array(map.titles.create(), map.titles.create(), map.titles.create());
+            var cad = "";
+            var colores = ["#E6EE3A", "#CED52B", "#009900", "#FF2D00", "#FF2D00","#D2CDCC"];
+            var coloresRango = ["#9AC443", "#61AA28", "#F8AA28", "#F15A24", "#F3170C", "#960803","#560B07"];
+            var color = "";
+
+            var gradient = new am4core.LinearGradient();
+            gradient.addColor(am4core.color("red"));
+            gradient.addColor(am4core.color("blue"));
+            var quinientos = 0;
+            var confirmados = 0;
+            var probables = 0;
+            var descartados = 0;
+            var defunciones = 0;
+            var polygonSeries = map.series.push(new am4maps.MapPolygonSeries());
+            var cincuenta= 0, cien= 0, doscincuenta= 0, mil= 0;dosmil = 0;
+            polygonSeries.useGeodata = true;
+            polygonSeries.exclude = [""];
+            cad='polygonSeries.data=[{';
+			imprimir = 'polygonSeries.data=[{';
+            for (i = 0; i < lista.length-1; i++) {
+                pobtotal += parseFloat(lista[i][4]);
+                casostotal += parseFloat(lista[i][2]);
+                if (lista[i][4] > 0) {
+                    if (lista[i][4] <= 50){
+                        color = coloresRango[0];
+                        cincuenta = cincuenta +1;
+                    } else if (lista[i][4] <= 100) {
+                        color = coloresRango[1];
+                        cien = cien +1;
+                    } else if (lista[i][4] <= 250) {
+                        color = coloresRango[2];
+                        doscincuenta = doscincuenta + 1;
+                    } else if (lista[i][4] <= 500) {
+                        color = coloresRango[3];
+                        quinientos = quinientos +1;
+                    } else if (lista[i][4] <= 1000) {
+                        color = coloresRango[4];
+                        mil = mil +1;
+                    }else if (lista[i][4] <= 3000) {
+                        color = coloresRango[5];
+                        dosmil = dosmil +1;
+                    }					
+					else {
+                        color = coloresRango[5]; dosmil = dosmil +1;
+                    }
+                } else if(lista[i][6] > 0) {
+                    color = colores[1];  
+                }
+                else if(lista[i][5] > 0) {
+                    color = colores[2];
+                }
+            
+                cad += ' "id": "' + lista[i][3] + '", "value": ' + (lista[i][4]) + ', "descartados": ' + (lista[i][5]) + ', "estudio": ' + (lista[i][6]) + ', "defuncion": ' + (lista[i][7]) + ',"fill": am4core.color("' + color + '") },{';
+				imprimir += ' "id": "' + lista[i][3] + '", "value": ' + (lista[i][4]) + ', "descartados": ' + (lista[i][5]) + ', "estudio": ' + (lista[i][6]) + ', "defuncion": ' + (lista[i][7]) + '},{';
+                descartados = descartados + parseInt(lista[i][5],10);
+                probables   = probables   + parseInt(lista[i][6],10);
+                confirmados = confirmados + parseInt(lista[i][4],10);
+                defunciones = defunciones + parseInt(lista[i][7],10);
+
+                if (parseInt(lista[i][3]) != lista.length-1)
+                {
+                  cad += ' "id": "' + lista[i][3] + '", "value": ' + (lista[i][4]) + ', "descartados": ' + (lista[i][5]) + ', "estudio": ' + (lista[i][6]) + ', "defuncion": ' + (lista[i][7]) + ',"fill": am4core.color("' + color + '") },{';
+				  imprimir += ' "id": "' + lista[i][3] + '", "value": ' + (lista[i][4]) + ', "descartados": ' + (lista[i][5]) + ', "estudio": ' + (lista[i][6]) + ', "defuncion": ' + (lista[i][7]) + '},{';
+                } else {
+                  cad += ' "id": "' + lista[i][3] + '", "value": ' + (lista[i][4]) + ', "descartados": ' + (lista[i][5]) + ', "estudio": ' + (lista[i][6]) + ', "defuncion": ' + (lista[i][7]) + ',"fill": am4core.color("' + gradient + '") }]';
+				  imprimir += ' "id": "' + lista[i][3] + '", "value": ' + (lista[i][4]) + ', "descartados": ' + (lista[i][5]) + ', "estudio": ' + (lista[i][6]) + ', "defuncion": ' + (lista[i][7]) + '}]';
+                }
+
+            }
+            crearlabel(map, "69%","5%",  " Número de Casos Positivos","#FFFFFF");
+            crearlabel(map, "73%","10%",   "1 a ","#FFFFFF",20);
+            crearlabel(map, "76%","10%",  "50","#FFFFFF",20);
+            if(cincuenta > 1|| cincuenta == 0){ crearlabel(map, "82%","10%",  "("+cincuenta+" Estados)","#FFFFFF",20);}else{ crearlabel(map, "82%","10%",  "("+cincuenta+" Estado)","#FFFFFF",20);}
+            crearlabel(map, "67%","10%",  "[#9AC443]___",coloresRango[0],20);
+            crearlabel(map, "72%","15%", "51 a  ","#FFFFFF",20);
+            crearlabel(map, "76%","15%",  "100","#FFFFFF",20);
+            if(cien > 1|| cien == 0){crearlabel(map, "82%","15%",  "("+cien+" Estados)","#FFFFFF",20);}else{ crearlabel(map, "81%","15%",  "("+cien+" Estados)","#FFFFFF",20);}
+            crearlabel(map, "67%","15%", " [#61AA28]___",coloresRango[1],20);
+            crearlabel(map, "71%","20%", "101 a ","#FFFFFF",20);
+            crearlabel(map, "76%","20%",  "250","#FFFFFF",20);
+            if(doscincuenta > 1|| doscincuenta == 0){crearlabel(map, "82%","20%",  "("+doscincuenta+" Estados)","#FFFFFF",20);}else{crearlabel(map, "82%","20%",  "("+doscincuenta+" Estado)","#FFFFFF",20);}
+            crearlabel(map, "67%","20%", " [#F8AA28]___",coloresRango[2],20);
+            crearlabel(map, "71%","25%",  "251 a ","#FFFFFF",20);
+            crearlabel(map, "76%","25%",  "500","#FFFFFF",20);
+            if(quinientos > 1|| quinientos == 0){crearlabel(map, "82%","25%",  "("+ quinientos+" Estados)" ,"#FFFFFF",20);}else{crearlabel(map, "82%","25%",  "("+ quinientos+" Estado)" ,"#FFFFFF",20);}
+            crearlabel(map, "67%","25%", " [#F15A24]___",coloresRango[3],20);
+            crearlabel(map, "71%","30%",  "501 a 1000","#FFFFFF",20);
+            if(mil > 1 || mil == 0){crearlabel(map, "82%","30%",  "("+ mil+" Estados)" ,"#FFFFFF",20);}else{crearlabel(map, "82%","30%",  "("+ mil+" Estado)" ,"#FFFFFF",20);}
+            crearlabel(map, "67%","30%", " [#F3170C]___",coloresRango[4],20);
+            crearlabel(map, "10%","70%", "Total casos positivos: " +Intl.NumberFormat("en-IN").format(confirmados),'#FFFFFF',20);
+            
+			 crearlabel(map, "70%","35%",  "1001 a 3000","#FFFFFF",20);
+            if(dosmil > 1 || dosmil == 0){crearlabel(map, "82%","35%",  "("+ dosmil+" Estados)" ,"#FFFFFF",20);}else{crearlabel(map, "82%","35%",  "("+ dosmil+" Estado)" ,"#FFFFFF",20);}
+            crearlabel(map, "67%","35%", " [#960803]___",coloresRango[5],20);
+            crearlabel(map, "10%","70%", "Total casos positivos: " +Intl.NumberFormat("en-IN").format(confirmados),'#FFFFFF',20);
+			
+			var label = map.createChild(am4core.Label);
+            label.text = lista[0][8];
+            label.fontSize = 13;
+            label.align = "center";
+            label.isMeasured = false;
+            label.x = am4core.percent(20);
+            label.horizontalCenter = "middle";
+            label.y = am4core.percent(92);
+            var label1 = map.createChild(am4core.Label);
+            label1.text = "Fuente: Plataforma SISVER, SINAVE, DGE, SSa.";
+            label1.fontSize = 13;
+            label1.align = "left";
+            label1.isMeasured = false;
+            label1.x = am4core.percent(6.5);
+            label1.horizontalCenter = "left";
+            label1.y = am4core.percent(95);
+            var label2 = map.createChild(am4core.Label);
+            label2.text = "Estados de México reportando casos de COVID-19";
+            label2.fontSize = 25;
+            label2.align = "center";
+            label2.isMeasured = false;
+            label2.x = am4core.percent(50);
+            label2.horizontalCenter = "middle";
+            label2.y = am4core.percent(0);
+			eval(cad);
+			var datitosprimero = imprimir;
+            polygonSeries.fill = gradient;
+            var polygonTemplate = polygonSeries.mapPolygons.template;
+            polygonTemplate.tooltipHTML  = "<table><tr>  <td colspan=\"2\" style=\"text-align:center\"><strong>{ESTADO}</strong></td></tr><tr>  <td style=\"text-align:left\">Casos Positivos</th>  <td style=\"text-align:right\">{value}</td></tr><tr>  <td style=\"text-align:left\">Casos Negativos</th>  <td style=\"text-align:right\">{descartados}</td></tr><tr>  <td style=\"text-align:left\">Casos Sospechosos</th>  <td style=\"text-align:right\">{estudio}</td></tr><tr>  <td style=\"text-align:left\">Defunciones: </th>  <td style=\"text-align:right\">{defuncion}</td></tr></table>"
+            polygonTemplate.propertyFields.fill ="fill";
+            var hs = polygonTemplate.states.create("hover");
+            hs.properties.fill = am4core.color("#99ccff");            
+            for (i = 0; i < title.length; i++) {
+                title[i].fontSize = 20;
+                title[i].marginBottom = 5;
+                title[i].response = true;
+            }
+			
+			
+			
+            CreaExport(map, "COV19_MAPA");
+            map.events.on('ready', () => {
+                QuitaCarga("carga21");
+            });
+        }
+    </script>
+
+      <script type="text/javascript">      
+          function GetIEVersion() {
+              var sAgent = window.navigator.userAgent;
+              var Idx = sAgent.indexOf("MSIE");
+
+              // If IE, return version number.
+              if (Idx > 0) 
+                  return parseInt(sAgent.substring(Idx+ 5, sAgent.indexOf(".", Idx)));
+
+                  // If IE 11 then look for Updated user agent string.
+              else if (!!navigator.userAgent.match(/Trident\/7\./)) 
+                  return 11;
+
+              else
+                  return 0; //It is not IE
+          }
+
+          if (GetIEVersion() > 0) {
+              alert("La plataforma no soporta el uso de Internet Explorer, por favor descarga otro explorador , recomendamos el uso de Google Chrome.");
+              
+          }
+          else {
+          }
+             
+           </script>
+    <style type="text/css">
+
+
+a 
+{
+	color: #FF8A00;
+}
+
+
+a.menu_principal{font-family:Verdana;font-size:10px;font-style:normal;font-weight:normal;font-variant:normal;text-transform:none;color:#666666;text-decoration:none;}
+.menu_principal{padding:0;margin:0;border-width:0;background-color:#E5E7E6;}
+.footer{font-family:Verdana;font-size:9px;font-style:normal;font-weight:normal;font-variant:normal;text-transform:none;color:#98999B;text-decoration:none;}
+a.footer{font-family:Verdana;font-size:9px;font-style:normal;font-weight:normal;font-variant:normal;text-transform:none;color:#98999B;text-decoration:none;}
+        .style2
+        {
+            color: #999999;
+        }
+        .style3
+        {
+            color: #999999;
+            text-align: right;
+        }
+         #form1
+        {
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <form method="post" action="Grafica22" id="aspnetForm">
+<div class="aspNetHidden">
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUKMTY1NDU2MTA1MmRkW1bF3g1dq9YaB/UFtrb8cVkePKwPkRfddmPul0ecLgs=" />
+</div>
+
+<div class="aspNetHidden">
+
+	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="881C1645" />
+</div>
+      
+        <table style="width: 100%; text-align: center">
+            <tr style="text-align: center">
+                <td style="width: 100%; text-align: center;" >
+                    <img id="ctl00_Image1" src="../Images/headsinfondo.png" style="height:110px;width:1080px;" />
+                </td>
+            </tr>
+           <tr style="height: 15px">
+                 <td style="text-align: center">
+                    <div style="text-align: center; vertical-align: middle; font-size: xx-small; background-color: #9A324F; height: 20px; width: 100%; margin-top: 5px; margin-bottom: 5px;"></div>
+                </td>
+            </tr>
+
+        </table>
+        <table style="width: 100%;text-align: center">
+            <tr   style="text-align: center">
+                <td style="width: 100%; text-align: center;" >
+
+                    
+      <table style="margin: 0 auto;" class="auto-style40" >
+        <tr>
+            <td style="width: 50%; position: center; height: 80%">
+                <div id="tab21">
+                    <table style="width: 100%"  border="1">
+                        <tr>
+                            <td style="width: 100%;">
+                                <div class="chartcontainer" style="text-align: center;">
+                                    <div id="chart21" class="chartStyle"></div>
+                                    <div id="carga21" class="cargando">
+                                        <div class="figura">
+                                            <div class="cssload-inner cssload-one"></div>
+                                            <div class="cssload-inner cssload-two"></div>
+                                            <div class="cssload-inner cssload-three"></div>
+                                        </div>
+                                        <div class="DIVfountainTextG">
+                                            <div class="fountainTextG fountainTextG_1 ">C</div>
+                                            <div class="fountainTextG fountainTextG_2 ">A</div>
+                                            <div class="fountainTextG fountainTextG_3 ">R</div>
+                                            <div class="fountainTextG fountainTextG_4 ">G</div>
+                                            <div class="fountainTextG fountainTextG_5 ">A</div>
+                                            <div class="fountainTextG fountainTextG_6 ">N</div>
+                                            <div class="fountainTextG fountainTextG_7 ">D</div>
+                                            <div class="fountainTextG fountainTextG_8 ">O</div>
+                                            <div class="fountainTextG fountainTextG_9 ">&nbsp;</div>
+                                            <div class="fountainTextG fountainTextG_10">D</div>
+                                            <div class="fountainTextG fountainTextG_11">A</div>
+                                            <div class="fountainTextG fountainTextG_12">T</div>
+                                            <div class="fountainTextG fountainTextG_13">O</div>
+                                            <div class="fountainTextG fountainTextG_14">S</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </td>
+        </tr>
+    </table>
+    
+    <H1><a href="mapatasas.aspx">Ir al mapa por tasas</a></H1>
+
+                </td>
+            </tr>
+            <tr style="height: 15px">
+                 <td style="text-align: center">
+                    <div style="text-align: center; vertical-align: middle; font-size: xx-small; background-color: #9A324F; height: 20px; width: 100%; margin-top: 5px; margin-bottom: 5px;"></div>
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>
