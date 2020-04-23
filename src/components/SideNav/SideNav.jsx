@@ -9,7 +9,7 @@ export default class SideNav extends Component {
     return (
         <div id="slide-out" className="sidenav">
            <div className="navtop">
-             <a href="#!" className="right waves-effect waves-light navbtn sidenav-close">close</a>
+             <a className="right waves-effect waves-light navbtn sidenav-close">close</a>
              <h3 className="menutitle">Menu</h3>
            </div>
             <ul className="navList">
