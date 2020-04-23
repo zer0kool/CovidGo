@@ -93,22 +93,17 @@ export default class TopStats extends Component {
             { cases,deaths,recovered }
         ]) {
 
-            let x = new Object;
-            let y = new Object;
-            let z = new Object;
+            const getCases = { date:date , value:cases }
+            const getDeaths = { date:date , value:deaths }
+            const getRecovered = { date:date , value:recovered }
 
-            x.date = new Date(date).toISOString().split('T')[0];//formato to YYYY-MM-DD
-            y.date=new Date(date).toISOString().split('T')[0];
-            z.date=new Date(date).toISOString().split('T')[0];
+            const newCase = Object.create(getCases)
+            const newDeath = Object.create(getDeaths)
+            const newRecovery = Object.create(getRecovered)
 
-            x.value = cases;
-            casesArray.push(x);
-
-            y.value = deaths;
-            deathsArray.push(y);
-
-            z.value = recovered;
-            recoveredArray.push(z);
+            casesArray.push(newCase);
+            deathsArray.push(newDeath);
+            recoveredArray.push(newRecovery);
 
         });
         this.setState({

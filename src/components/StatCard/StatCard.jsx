@@ -30,7 +30,7 @@ export default class TopStats extends Component {
                     </p>
                 </div>
                 <div className="card-reveal">
-                      <span className="card-title grey-text text-darken-4">{this.props.label}<i className="material-icons right">close</i></span>
+                      <span className="card-title white-text text-darken-4">{this.props.label}<i className="material-icons right">close</i></span>
                         <div className="graph">
                             <GlobalGraph idGraph={this.props.idGraph} data= {this.props.dataGraph} />
                         </div>

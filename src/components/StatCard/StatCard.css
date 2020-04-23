@@ -30,6 +30,6 @@
     padding: 4px;
     overflow: hidden; }
     .card.activator .card-reveal .graph {
-      display: flex;
-      align-items: center;
-      justify-content: center; }
+      min-width: 260px;
+      overflow: hidden;
+      margin-bottom: 30px; }
