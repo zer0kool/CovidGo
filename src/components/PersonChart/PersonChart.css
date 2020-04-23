@@ -5,11 +5,14 @@
   border-bottom: 4px solid #828282;
   background-color: rgba(67, 77, 75, 0.34);
   border-radius: 10px; }
-  .personChart_container .title {
-    text-align: center;
-    margin-bottom: 50px; }
-  .personChart_container .chartSection {
-    overflow: hidden; }
-    .personChart_container .chartSection .personChart {
-      height: 500px;
-      min-width: 500px; }
+
+.personChart_container .title {
+  text-align: center;
+  margin-bottom: 50px; }
+
+.personChart_container .chartSection {
+  overflow: hidden; }
+
+.personChart_container .chartSection .personChart {
+  height: 500px;
+  min-width: 500px; }
