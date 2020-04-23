@@ -1,0 +1,8 @@
+.modal.bottom-sheet {
+  max-height: 80% !important;
+  height: 100%;
+  border-top-right-radius: 35px;
+  border-top-left-radius: 35px; }
+
+.modal.bottom-sheet .modal-content {
+  color: white; }
