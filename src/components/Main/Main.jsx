@@ -50,6 +50,7 @@ export default class Main extends Component {
                                 />
                             )}
                         </div>
+
                     </Fragment>
                 ) : (
                     <div>
@@ -57,7 +58,6 @@ export default class Main extends Component {
                     </div>
                 )}
                 <Mexico />
-               <a href="#" data-target="slide-out" className="right fixed-action-btn sidenav-trigger btn-large btn-floating waves-effect waves-light red"><i className="material-icons">menu</i></a>
             </div>
         );
     }

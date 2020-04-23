@@ -45,25 +45,40 @@ export default class MXCall extends Component {
         );
     }
 
+    fetchData = (url_api) =>{
+        return new Promise( (resolve, reject) =>{
+            let xHttp = new XMLHttpRequest();
+
+            xHttp.open('POST', url_api, true ) //El true es para decir que se ejecute de forma asincrona
+            xHttp.setRequestHeader("content-type", "application/json");
+            xHttp.onreadystatechange = ( () =>{
+
+                if(xHttp.readyState === 4){
+                    //El 4 es para hacer referencia a los estados de la peticion, en este caso "Request finished, Response is ready"
+
+                    (xHttp.status === 200)
+                        ? resolve( JSON.parse(xHttp.responseText) )
+                        : reject( new Error('Error Peticion Data', url_api) )
+                }
+            })
+
+            xHttp.send();
+        })
+
+    }
+
+
     componentDidMount = async () =>{
 
-         // using proxy to bypass cors
-         const proxy = "https://cors-anywhere.herokuapp.com/";
-         const url = "https://covid19.sinave.gob.mx/Log.aspx/Grafica22";
-         var data = [];
+        //  using proxy to bypass cors
+        const proxy = "https://cors-anywhere.herokuapp.com/";
+        const url = "https://covid19.sinave.gob.mx/Log.aspx/Grafica22";
+        try {
+            const data = await this.fetchData(proxy+url);
 
-         // new request information
-         var inforequest = new XMLHttpRequest();
-         inforequest.open('POST', proxy+url, true);
-         inforequest.setRequestHeader("content-type", "application/json");
-         inforequest.onload = function () {
-
-            var covid = JSON.parse(this.response);
+            var covid = data;
             var estados = JSON.parse(covid.d);
-             //console.log(estados);
-
-//            var data = [];
-             console.log(data);
+            var datos = [];
             estados.forEach( estado => {
                 var scraper = {state: "", activeCases:"", negativos:"", pending:"", deaths:"" };
                 scraper.state = estado[1];
@@ -71,17 +86,14 @@ export default class MXCall extends Component {
                 scraper.negativos = estado[5];
                 scraper.pending = estado[6];
                 scraper.deaths = estado[7];
-                //console.log(scraper);
-            data.push(scraper);
-           })
-
-            return data;
-         }
-
-         inforequest.send();
-         this.setState({
-            estadosMX:data
-         })
+                datos.push(scraper);
+            })
+            this.setState({
+                estadosMX:datos
+            })
+        } catch (error) {
+            console.log("Error MEXICO COMP: ",error)
+        }
     }
 
 }

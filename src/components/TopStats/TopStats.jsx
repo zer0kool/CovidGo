@@ -49,9 +49,6 @@ export default class TopStats extends Component {
                     label="Recovered"
                     totalStats={recovered.toLocaleString()}
 
-                    todayStats={`Today ${this.props.totalRemaining.toLocaleString()} recovered`}
-                    dataGraph={this.state.dataRecoveredGraph}
-                    idGraph={"recoveredGraph"}
 
                     todayStats={` ${this.props.totalRemaining.toLocaleString()} remaining`}
                     dataGraph={this.state.dataRecoveredGraph}
