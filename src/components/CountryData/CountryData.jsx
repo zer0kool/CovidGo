@@ -40,9 +40,9 @@ const CountryData = (props) => {
             <div className="topStatsCotainer">
               <TopStats
                   allInformation={ {
-                    cases:countryData.cases,
-                    deaths:countryData.deaths,
-                    recovered:countryData.recovered
+                    cases:(countryData.cases !== null)? countryData.cases : 0,
+                    deaths:(countryData.deaths !== null)? countryData.deaths: 0,
+                    recovered:(countryData.recovered !== null)? countryData.recovered : 0
                   } }
                   totalCasesToday={ countryData.todayCases}
                   totalDeathsToday={countryData.todayDeaths}
