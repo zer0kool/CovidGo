@@ -13,7 +13,7 @@ export default class MXCall extends Component {
     render() {
         return (
             <div className="Estados">
-             <a className="waves-effect waves-light btn modal-trigger" href="#modalMX">Modal</a>
+             <a className="waves-effect waves-light btn modal-trigger" href="#modalMX">Mexico by State</a>
               <div id="modalMX" className="modal bottom-sheet blue-grey darken-4">
                 <div className="modal-content">
                   <h4>Estados Mexicanos</h4>
@@ -39,9 +39,6 @@ export default class MXCall extends Component {
                       </tbody>
                     </table>
                   </div>
-                </div>
-                <div className="modal-footer">
-                  <a href="#!" className="modal-close waves-effect waves-green btn-flat">close</a>
                 </div>
               </div>
             </div>
