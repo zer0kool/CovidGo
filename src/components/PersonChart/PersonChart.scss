@@ -1,16 +1,22 @@
 .personChart_container {
-  margin-top: 50px;
-  min-height: 500px;
-  padding: 30px;
-  border-bottom: 4px solid #828282;
-  background-color: rgba(67, 77, 75, 0.34);
-  border-radius: 10px;
-  .title{
-    text-align: center;
-    margin-bottom: 50px;
-  }
+    margin-top: 50px;
+    min-height: 500px;
+    padding: 30px;
+    border-bottom: 4px solid #828282;
+    background-color: rgba(67, 77, 75, 0.34);
+    border-radius: 10px;
 
-  .personChart {
-      height: 500px;
-  }
+    .title {
+        text-align: center;
+        margin-bottom: 50px;
+    }
+
+    .chartSection {
+        overflow: hidden;
+
+        .personChart {
+            height: 500px;
+            min-width: 500px;
+        }
+    }
 }

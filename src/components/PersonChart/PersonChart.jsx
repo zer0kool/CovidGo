@@ -12,7 +12,9 @@ class PersonChart extends Component {
         return (
             <div className="personChart_container">
                 <h3 className="title white-text ">Percentage Of Death In Infected Patients: {( (this.props.deaths *100)/this.props.cases).toFixed(1)}% </h3>
-                <div className="personChart" id="personChart"></div>
+                <div className="chartSection">
+                    <div className="personChart" id="personChart"></div>
+                </div>
             </div>
         );
     }
