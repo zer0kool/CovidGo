@@ -1,2 +1,9 @@
-.Header {
+a.left.brand-logo {
+    display: flex;
+
+    .logo {
+        height: 56px;
+        padding: 5px;
+        width: 56px;
+    }
 }

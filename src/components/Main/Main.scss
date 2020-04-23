@@ -40,4 +40,8 @@ $desktop: 1200px;
     .distributionChartContainer {
         grid-area: distributionChart;
     }
+    .fixed-action-btn{
+        bottom: 40px!important;
+        right: 25px!important;
+    }
 }

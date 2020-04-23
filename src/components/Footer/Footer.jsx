@@ -14,45 +14,56 @@ export default class Footer extends Component {
                             <p className="grey-text text-lighten-4">
                                 Built with hope to bring more awareness to
                                 communities and make them realize that staying
-                                at home can stop this pandemic. #WeAreWavook
+                                at home can stop this pandemic. #StayHome
                             </p>
                         </div>
                         <div className="col l4 offset-l2 s12">
                             <h5 className="white-text">Resources</h5>
-                            <ul>
+                            <ul className="footerLi">
                                 <li>
                                     <a
                                         className="grey-text text-lighten-3"
-                                        href="#!"
+                                        href="https://sinave.gob.mx"
                                     >
-                                        React
+                                        gob.mx
                                     </a>
                                 </li>
                                 <li>
                                     <a
                                         className="grey-text text-lighten-3"
-                                        href="#!"
+                                        href="https://www.who.int/"
                                     >
-                                        MaterializeCSS
+                                        who.int
                                     </a>
                                 </li>
                                 <li>
                                     <a
                                         className="grey-text text-lighten-3"
-                                        href="#!"
+                                        href="https://www.worldometers.info/coronavirus/"
                                     >
-                                        Github
+                                        worldometers
                                     </a>
                                 </li>
                                 <li>
                                     <a
                                         className="grey-text text-lighten-3"
-                                        href="#!"
+                                        href="https://www.wavook.com"
                                     >
-                                        Heroku
+                                        Wavook
                                     </a>
                                 </li>
                             </ul>
+                            <div className="Build blue-grey darken-4">
+                             <h5 className="white-text">Build By Wavook</h5>
+                              <div className="chip">
+                                  <img src="wavook.png" alt="Contact Person" />
+                                Ulises Cervantes
+                              </div>
+                               <div className="chip">
+                                   <img src="wavook.png" alt="Contact Person" />
+                                Alejandro Loaiza
+                              </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -60,7 +71,7 @@ export default class Footer extends Component {
                     <div className="container">
                         © 2020 CovidGo
                         <a className="grey-text text-lighten-4 right" href="#!">
-                            #StayHome
+                            #WeAreWavook
                         </a>
                     </div>
                 </div>

@@ -1,0 +1,7 @@
+.footerLi {
+  display: flex;
+  justify-content: space-between;
+  flex-flow: wrap; }
+
+.Build {
+  margin-top: 30px; }
