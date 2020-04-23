@@ -101,14 +101,14 @@
         <!-- Materialize depends on jQuery -->
         <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 
-        <!-- Compiled and minified JavaScript, either we keep it here or import it as a modeul in react -->
+        <!-- Compiled and minified JavaScript, either we keep it here or import it as a model in react -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
         <!-- this probably needs to be added to a js file eg: init.js -->
         <script>
             $(document).ready(function(){$('.sidenav').sidenav({preventScrolling: true});});
             $(document).ready(function(){$('.collapsible').collapsible();});
-            $(document).ready(function(){$('.modal').modal();});
+            $(window).ready(function(){$('.modal').modal();});
         </script>
     </body>
 </html>

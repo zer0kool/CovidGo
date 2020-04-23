@@ -12,6 +12,9 @@ import Main from "./components/Main/Main";
 import CountryData from './components/CountryData/CountryData'
 import Notfound from "./components/Notfound/Notfound";
 import SideNav from "./components/SideNav/SideNav";
+import WhatIsCovid from "./components/WhatIsCovid/WhatIsCovid"
+import Precautions from './components/Precautions/Precautions'
+import Symptoms from './components/Symptoms/Symptoms'
 
 function App() {
     return (
@@ -23,10 +26,15 @@ function App() {
             <main>
                 <Switch>
                     <Route exact path="/" component={Main} />
+                    <Route exact path="/symptoms" component={Symptoms} />
+                    <Route exact path="/precautions" component={Precautions} />
+                    <Route exact path="/whatIsCOVID19" component={WhatIsCovid} />
                     <Route exact path="/country/:name/:code" component={CountryData} />
                     <Route component={Notfound} />
                 </Switch>
             </main>
+
+            <div  data-target="slide-out" className="right fixed-action-btn sidenav-trigger btn-large btn-floating waves-effect waves-light red"><i className="material-icons">menu</i></div>
             <Footer />
         </Router>
     );

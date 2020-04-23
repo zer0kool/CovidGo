@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 
 import SymptomsChart from "../SymptomsChart/SymptomsChart"
 
@@ -9,18 +10,24 @@ export default class SideNav extends Component {
     return (
         <div id="slide-out" className="sidenav">
            <div className="navtop">
-             <a href="#!" className="right waves-effect waves-light navbtn sidenav-close">close</a>
+             <a  className="right waves-effect waves-light navbtn sidenav-close">close</a>
              <h3 className="menutitle">Menu</h3>
            </div>
             <ul className="navList">
-              <li className="item">
-                  <a href="#!" className="menuitem"><i className="material-icons white-text">assignment_ind</i>Learn about Symptoms</a>
+              <li className="item">                  
+                  <Link className="menuitem sidenav-close" to="/symptoms">
+                    <i className="material-icons white-text">assignment_ind</i>Learn about Symptoms
+                  </Link>
               </li>
               <li className="item">
-                  <a href="#!" className="menuitem"><i className="material-icons white-text">cloud</i>Tacking Precautions</a>
+                  <Link className="menuitem sidenav-close" to="/precautions">
+                    <i className="material-icons white-text">cloud</i>Tacking Precautions
+                  </Link>
               </li>
-              <li className="item">
-                  <a href="#!" className="menuitem"><i className="material-icons white-text">cloud</i>What is Covid-19</a>
+              <li className="item">                  
+                  <Link className="menuitem sidenav-close" to="/whatIsCOVID19">
+                    <i className="material-icons white-text">cloud</i>What is Covid-19
+                  </Link>
             </li>
             </ul>
             <SymptomsChart />
