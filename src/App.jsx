@@ -15,6 +15,7 @@ import SideNav from "./components/SideNav/SideNav";
 import WhatIsCovid from "./components/WhatIsCovid/WhatIsCovid"
 import Precautions from './components/Precautions/Precautions'
 import Symptoms from './components/Symptoms/Symptoms'
+import Feed from './components/Feed/Feed'
 
 function App() {
     return (
@@ -22,6 +23,7 @@ function App() {
             <header>
                 <Header />
                 <SideNav />
+                <Feed />
             </header>
             <main>
                 <Switch>
