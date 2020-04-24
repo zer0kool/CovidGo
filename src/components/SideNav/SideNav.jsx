@@ -30,7 +30,6 @@ export default class SideNav extends Component {
                   </Link>
             </li>
             </ul>
-            <SymptomsChart />
             <div className="row">
               <div className="col s12 m4">
                 <div className="card horizontal">
@@ -79,7 +78,7 @@ export default class SideNav extends Component {
               <div className="collapsible-body blue-grey darken-4"><span>Lorem ipsum dolor sit amet.</span></div>
             </li>
           </ul>
-
+            <SymptomsChart />
         </div>
     );
   }

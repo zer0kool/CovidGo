@@ -5,16 +5,21 @@
   grid-gap: 20px;
   grid-template-columns: 1fr 1fr;
   grid-template-areas: "topStats topStats " "searchCountries searchCountries" "distributionChart distributionChart"; }
-  @media (min-width: 1200px) {
-    .Main {
-      grid-template-columns: 1fr 1fr 1fr 1fr;
-      grid-template-areas: "topStats topStats topStats topStats" "searchCountries searchCountries distributionChart distributionChart" "searchCountries searchCountries distributionChart distributionChart"; } }
-  .Main .topStatsCotainer {
-    grid-area: topStats; }
-  .Main .searchCountriesContainer {
-    grid-area: searchCountries; }
-  .Main .distributionChartContainer {
-    grid-area: distributionChart; }
-  .Main .fixed-action-btn {
-    bottom: 40px !important;
-    right: 25px !important; }
+
+@media (min-width: 1200px) {
+  .Main {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-areas: "topStats topStats topStats topStats" "searchCountries searchCountries distributionChart distributionChart" "searchCountries searchCountries distributionChart distributionChart"; } }
+
+.Main .topStatsCotainer {
+  grid-area: topStats; }
+
+.Main .searchCountriesContainer {
+  grid-area: searchCountries; }
+
+.Main .distributionChartContainer {
+  grid-area: distributionChart; }
+
+.Main .fixed-action-btn {
+  bottom: 40px !important;
+  right: 25px !important; }
