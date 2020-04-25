@@ -79,6 +79,7 @@ export default class MXCall extends Component {
             var covid = data;
             var estados = JSON.parse(covid.d);
             var datos = [];
+//            console.log(datos)
             estados.forEach( estado => {
                 var scraper = {state: "", activeCases:"", negativos:"", pending:"", deaths:"" };
                 scraper.state = estado[1];

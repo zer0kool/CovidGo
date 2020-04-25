@@ -65,6 +65,7 @@ export default class Feed extends Component {
 
             var todayDate = new Date().toISOString().slice(0,10);
             var htmlFeed = htmlDom.querySelectorAll(`#newsdate${todayDate} .news_post .news_li`);
+//            console.log(htmlFeed)
             var dataFeed = []
 //            console.log(dataFeed)
             htmlFeed.forEach( article => {

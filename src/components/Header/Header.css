@@ -1,7 +1,6 @@
 a.left.brand-logo {
   display: flex; }
-
-a.left.brand-logo .logo {
-  height: 56px;
-  padding: 5px;
-  width: 56px; }
+  a.left.brand-logo .logo {
+    height: 56px;
+    padding: 5px;
+    width: 56px; }
