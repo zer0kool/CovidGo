@@ -20,14 +20,15 @@ export default class Wavook extends Component {
     render() {
         const { wavookData, isLoading, error } = this.state;
 
-        if ( !wavookData ){ return <p className="white-text"> No Data...</p>;}
-        if ( isLoading ){ return <p className="white-text"> Loading Data...</p>;}
+        if ( !wavookData ){ return <p className="white-text"> No WavookData...</p>;}
+        if ( isLoading ){var fetching = <p className="white-text"> Loading WavookData...</p>;}
         if ( error ){ return <p className="white-text"> {error.message} </p>;}
 
         return (
             <div id="Wavook">
-                 {wavookData.map( post =>
-                 <div key={post.objectID}>
+                {fetching}
+                 {wavookData.map( (post, index) =>
+                 <div key={index}>
                      <p>{post.title}</p>
                      <p>{post.url}</p>
                      <p>{post.views}</p>
@@ -36,15 +37,15 @@ export default class Wavook extends Component {
         );
     }
 
-   async componentDidMount() {
+    componentDidMount = async () =>{
         this.setState({ isLoading: true })
         let self = this
-        var data = [];
+        let dataParsed = [];
+        let parser = new DOMParser();
         fetch(proxy+Endpoint)
             .then(response => response.text()) // Aqui podemos agregar mas error handling -alex.
             .then(function (html){
                 try{
-                    let parser = new DOMParser();
                     let wavook = parser.parseFromString(html, 'text/html');
                     let posts = wavook.querySelectorAll(".blogpost");
                     posts.forEach( scrape => {
@@ -54,10 +55,10 @@ export default class Wavook extends Component {
                         post.author = scrape.children[1].children[0].innerText;
                         post.avatar = scrape.children[1].children[0].firstElementChild.currentSrc;
                         post.views = scrape.children[1].children[1].children[1].textContent;
-                        data.push(post);
+                        dataParsed.push(post);
                     })
                 } catch (error) {console.log(`Error inside the parsing function: ${error}`)}
-            self.setState({ wavookData: data, isLoading: false })
+            self.setState({ wavookData: dataParsed, isLoading: false })
 
         }).catch( error => this.setState({ error, isLoading: false }))
     }
