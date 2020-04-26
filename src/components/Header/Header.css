@@ -5,3 +5,6 @@ a.left.brand-logo .logo {
   height: 56px;
   padding: 5px;
   width: 56px; }
+
+.sidenav-trigger {
+  border-radius: 50px; }

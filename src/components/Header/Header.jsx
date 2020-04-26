@@ -13,7 +13,7 @@ export default class Header extends Component {
               <img src="./covidgo.png" className="logo circle"></img>
               CovidGo</a>
               <ul className="right">
-                <li><a data-target="right-sidebar-nav" className="sidenav-trigger blue-grey darken-4"><i className="material-icons">add_alert</i></a></li>
+                <li><a data-target="right-sidebar-nav" className="pulse sidenav-trigger blue-grey darken-4"><i className="material-icons">add_alert</i></a></li>
               </ul>
             </div>
           </nav>
