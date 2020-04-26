@@ -7,7 +7,6 @@ import Loading from "../Loading/Loading";
 import SearchCountries from "../SearchCountries/SearchCountries";
 //import GlobalChart from "../GlobalChart/GlobalChart";
 import DistributionChart from "../DistributionChart/DistributionChart";
-import Mexico from "../MexicoAPI/Mexico";
 import TopStats from "../TopStats/TopStats";
 
 export default class Main extends Component {
@@ -57,7 +56,6 @@ export default class Main extends Component {
                         <Loading />
                     </div>
                 )}
-                <Mexico />
             </div>
         );
     }

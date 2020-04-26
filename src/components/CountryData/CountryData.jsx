@@ -3,6 +3,7 @@ import React, {useState,useEffect, Fragment} from 'react';
 import TopStats from '../TopStats/TopStats'
 import PersonChart from '../PersonChart/PersonChart'
 import Loading from '../Loading/Loading'
+import Mexico from "../MexicoAPI/Mexico";
 
 import './CountryData.css'
 
@@ -26,12 +27,16 @@ const CountryData = (props) => {
 
     },[])
 
+    if ((/^\/country\/Mexico\/MX/).test(window.location.pathname)){
+            var fetchMexico = <Mexico />
+    }
     console.log(countryData)
   return (
     <div className="countryData_container">
       <div className="country_header">
         <img className="flag" src={flagSrc} alt={name} />
         <h3 className="white-text">{name} </h3>
+         {fetchMexico}
       </div>
       {
         (countryData)?
