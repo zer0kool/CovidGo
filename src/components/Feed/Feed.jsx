@@ -34,8 +34,8 @@ export default class Feed extends Component {
                 <ul className="collection">
                     {fetching}
                      {feedData.map(function(source, index){
-                        return ( <li key={index} className="collection-item blue-grey darken-4">
-                            <ul>{source.info}</ul>
+                        return ( <li key={index} className="collection-item blue-grey darken-4 waves-effect">
+                            <a href={source.source}>{source.info}</a>
                         </li> )
                     })}
                  </ul>
@@ -61,6 +61,7 @@ export default class Feed extends Component {
                     htmlFeed.forEach( scrape => {
                         let article = { info:"", source:""};
                         article.info = scrape.innerText;
+                        article.source = scrape.lastChild.children[0].href
 
                         dataParsed.push(article);
                     })

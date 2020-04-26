@@ -55,5 +55,18 @@
     }
     .collection {
         margin: 100px 10px 10px 10px;
+        border: none;
+
+        .collection-item {
+        margin: 10px 0;
+        border-bottom: none;
+        border-radius: 5px;
+        box-shadow: 0px 1px 1px 0 rgba(0, 0, 0, 0.2), 0px 1px 3px 0px rgba(62, 61, 61, 0.24);
+        width: -webkit-fill-available;
+
+            a{
+                color:white;
+            }
+        }
     }
 }
