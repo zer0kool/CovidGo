@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
 import SymptomsChart from "../SymptomsChart/SymptomsChart"
+import Wavook from "../Wavook/Wavook"
 
 import "./SideNav.css";
 
@@ -30,21 +31,10 @@ export default class SideNav extends Component {
                   </Link>
             </li>
             </ul>
+
             <div className="row">
               <div className="col s12 m4">
-                <div className="card horizontal">
-                  <div className="card-image">
-                    <img src="./covidCell.jpg" />
-                  </div>
-                  <div className="card-stacked">
-                    <div className="card-content">
-                      <p> This Q&A will be updated as more is known about COVID-19, how it spreads and how it is affecting people worldwide.</p>
-                    </div>
-                    <div className="card-action">
-                      <a href="https://www.who.int/news-room/q-a-detail/q-a-coronaviruses">www.who.int</a>
-                    </div>
-                  </div>
-                </div>
+                    <Wavook />
               </div>
 
              <div className="col s12 m4">

@@ -1,0 +1,21 @@
+.wavook {
+  width: 100%;
+  display: flex;
+  overflow-x: auto;
+  max-width: 100%; }
+
+.wavook .card-panel {
+  width: 130px;
+  min-width: 120px;
+  height: 160px;
+  background-color: #fafafa;
+  margin: 10px 4px; }
+
+.wavook .card-panel .post {
+  height: 100px;
+  color: black; }
+
+.wavook .card-panel .social {
+  display: block;
+  text-align: end;
+  color: #30393d; }

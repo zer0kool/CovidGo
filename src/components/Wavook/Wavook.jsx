@@ -26,13 +26,19 @@ export default class Wavook extends Component {
 
         return (
             <div id="Wavook">
-                {fetching}
-                 {wavookData.map( (post, index) =>
-                 <div key={index}>
-                     <p>{post.title}</p>
-                     <p>{post.url}</p>
-                     <p>{post.views}</p>
-                 </div>)}
+                <h5 className="title white-text">Wavook Feed</h5>
+                <div className="wavook">
+                    {fetching}
+                     {wavookData.map( (post, index) =>
+                     <div className="card-panel" key={index}>
+                        <a href={post.url}>
+                            <div className="post">
+                                <span className="title">{post.title}</span>
+                            </div>
+                            <div className="social"><span className="material-icons">favorite_border</span>{post.views}</div>
+                        </a>
+                     </div>)}
+                </div>
             </div>
         );
     }
