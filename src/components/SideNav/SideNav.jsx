@@ -22,7 +22,7 @@ export default class SideNav extends Component {
               </li>
               <li className="item">
                   <Link className="menuitem sidenav-close" to="/precautions">
-                    <i className="material-icons white-text">nature_people</i>Tacking Precautions
+                    <i className="material-icons white-text">nature_people</i>Taking Precautions
                   </Link>
               </li>
               <li className="item">
