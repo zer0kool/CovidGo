@@ -2,7 +2,8 @@ import React, { Component } from "react";
 
 //CSS
 import "./CardCountry.css";
-
+//ICON
+import {AiFillPlusCircle} from 'react-icons/ai'
 export default class CardCountry extends Component {
 
     formatNumber = (num) => {
@@ -19,9 +20,12 @@ export default class CardCountry extends Component {
 
         return (
             <div className="CardCountry">
-
+                <span className="iconContainer">
+                    <AiFillPlusCircle className="icon_moreInfo blue-text" />
+                </span>
                 {
                     <div className="container_country">
+                        
                         <div className="left">
                             <div className="flag_country">
                                 <img src={this.props.flagCode} alt={country} />
