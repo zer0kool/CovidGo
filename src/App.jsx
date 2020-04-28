@@ -16,6 +16,7 @@ import WhatIsCovid from "./components/WhatIsCovid/WhatIsCovid"
 import Precautions from './components/Precautions/Precautions'
 import Symptoms from './components/Symptoms/Symptoms'
 import Feed from './components/Feed/Feed'
+import Mexico from "./components/MexicoAPI/Mexico";
 
 function App() {
     return (
@@ -35,6 +36,10 @@ function App() {
                     <Route component={Notfound} />
                 </Switch>
             </main>
+
+            <div id="viewbystate" className="modal bottom-sheet blue-grey darken-4">
+                <Mexico />
+            </div>
 
             <div  data-target="slide-out" className="right fixed-action-btn sidenav-trigger btn-large btn-floating waves-effect waves-light red"><i className="material-icons">menu</i></div>
             <Footer />

@@ -18,7 +18,6 @@ export default class SideNav extends Component {
               <li className="item">
                   <Link className="menuitem sidenav-close" to="/symptoms">
                     <i className="material-icons white-text">assignment_ind</i>Learn about Symptoms
-                    <i className="secondary-content material-icons">send</i>
                   </Link>
               </li>
               <li className="item">

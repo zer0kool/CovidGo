@@ -46,7 +46,7 @@ export default class Feed extends Component {
 
     componentDidMount() {
         this.setState({ isLoading: true })
-        console.log("loading feed Component")
+//        console.log("loading feed Component")
         let self = this
         let dataParsed = [];
         let parser = new DOMParser();
@@ -70,7 +70,7 @@ export default class Feed extends Component {
             self.setState({feedData: dataParsed, isLoading: false })
 
         }).catch( error => this.setState({ error, isLoading: false }))
-        console.log("Feed conponent finished")
+//        console.log("Feed conponent finished")
     }
 
 }
