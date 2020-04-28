@@ -6,11 +6,14 @@ a.left.brand-logo .logo {
   padding: 5px;
   width: 56px; }
 
-button.sidenav-trigger {
+.pulse.sidenav-trigger {
   border-radius: 50px;
+  display: flex;
   height: 40px;
-  top: 8px; }
+  width: 40px;
+  top: 8px;
+  border: 1px solid #ffffff38; }
 
-button.sidenav-trigger i.material-icons {
+.pulse.sidenav-trigger i.material-icons {
   line-height: 35px;
   color: white; }

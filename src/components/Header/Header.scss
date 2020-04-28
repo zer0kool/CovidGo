@@ -8,10 +8,13 @@ a.left.brand-logo {
     }
 }
 
-button.sidenav-trigger {
+.pulse.sidenav-trigger {
     border-radius: 50px;
+    display: flex;
     height: 40px;
+    width: 40px;
     top: 8px;
+    border:  1px solid #ffffff38;
 
     i.material-icons{
         line-height: 35px;
