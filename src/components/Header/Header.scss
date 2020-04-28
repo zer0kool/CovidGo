@@ -8,6 +8,13 @@ a.left.brand-logo {
     }
 }
 
-.sidenav-trigger {
+button.sidenav-trigger {
     border-radius: 50px;
+    height: 40px;
+    top: 8px;
+
+    i.material-icons{
+        line-height: 35px;
+        color: white;
+    }
 }

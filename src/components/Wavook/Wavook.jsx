@@ -4,7 +4,7 @@ import React, { Component } from "react";
 import "./Wavook.css"
 
 const proxy = "https://cors-anywhere.herokuapp.com/";
-const Endpoint = 'https://www.wavook.com/covid19.php'
+const Endpoint = 'https://www.wavook.com/covid19.php';
 
 export default class Wavook extends Component {
     constructor(props) {

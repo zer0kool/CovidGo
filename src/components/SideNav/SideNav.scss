@@ -1,9 +1,11 @@
 .btn-floating.btn-large {
     position: fixed;
 }
+
 .sidenav-trigger {
     background-color: #b70d00d1 !important;
 }
+
 .sidenav {
     position: fixed;
     width: 100%;
@@ -40,7 +42,8 @@
         }
     }
 
-    .navList, .collapsible {
+    .navList,
+    .collapsible {
         .menuitem {
             color: white !important;
             font-size: 1.2rem !important;
@@ -72,6 +75,7 @@
             display: flex;
             opacity: 0.70;
         }
+
         .card-action {
             padding: 5px 26px;
         }
@@ -79,5 +83,19 @@
 
     .collapsible-body {
         padding: 0 30px 30px 30px !important;
+        line-height: 1.6;
+        font-size: 1rem;
+
+        span {
+            display: block;
+
+            a {
+                color: #ffab40;
+            }
+        }
+
+        .covidgo {
+            margin-bottom: 20px;
+        }
     }
 }

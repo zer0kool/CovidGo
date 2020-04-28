@@ -37,7 +37,8 @@
   text-align: center;
   width: 100px; }
 
-.sidenav .navList .menuitem, .sidenav .collapsible .menuitem {
+.sidenav .navList .menuitem,
+.sidenav .collapsible .menuitem {
   color: white !important;
   font-size: 1.2rem !important;
   font-weight: 500;
@@ -45,7 +46,8 @@
   line-height: 48px;
   padding: 0 32px; }
 
-.sidenav .navList .item, .sidenav .collapsible .item {
+.sidenav .navList .item,
+.sidenav .collapsible .item {
   border-bottom: 1px solid #3a4246; }
 
 .sidenav .card.horizontal {
@@ -68,4 +70,15 @@
   padding: 5px 26px; }
 
 .sidenav .collapsible-body {
-  padding: 0 30px 30px 30px !important; }
+  padding: 0 30px 30px 30px !important;
+  line-height: 1.6;
+  font-size: 1rem; }
+
+.sidenav .collapsible-body span {
+  display: block; }
+
+.sidenav .collapsible-body span a {
+  color: #ffab40; }
+
+.sidenav .collapsible-body .covidgo {
+  margin-bottom: 20px; }
