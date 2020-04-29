@@ -7,6 +7,7 @@ import "./TopStats.css";
 import StatCard from "../StatCard/StatCard";
 // import GlobalGraph from "../GlobalGraph/GlobalGraph";
 
+let globalStatsEndPoint = "https://api.coronastatistics.live/timeline/global";
 export default class TopStats extends Component {
     constructor(props) {
         super(props);
@@ -21,12 +22,10 @@ export default class TopStats extends Component {
 
     render() {
         const { cases, deaths, recovered } = this.props.allInformation;
+
+
         return (
-
-
-
             <div className="top-container">
-
                 <StatCard
                     icon="mood_bad"
                     label="Infected"
@@ -48,15 +47,13 @@ export default class TopStats extends Component {
                     icon="healing"
                     label="Recovered"
                     totalStats={recovered.toLocaleString()}
-
-
                     todayStats={` ${this.props.totalRemaining.toLocaleString()} remaining`}
                     dataGraph={this.state.dataRecoveredGraph}
                     idGraph={"recoveredGraph"}
                 />
                 <StatCard
                     icon="airline_seat_flat"
-                    label="Critical"
+                    label="Covid Tests"
                     totalStats="..."
                     icon2="group_add"
                     todayStats={0}
@@ -66,8 +63,6 @@ export default class TopStats extends Component {
     }
 
     componentDidMount = async () =>{
-        let globalStatsEndPoint =
-            "https://api.coronastatistics.live/timeline/global";
         let globalStatsCall = await fetch(globalStatsEndPoint);
         if (globalStatsCall.ok) {
             try {
