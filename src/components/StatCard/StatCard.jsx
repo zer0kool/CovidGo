@@ -17,6 +17,7 @@ export default class TopStats extends Component {
         return (
             <div className="card activator">
                 <div className="cardxContainer card-content">
+                   <i className="material-icons tiny right activator grey-text lighten-5">info</i>
                     <span className="activator">
                         <i className="material-icons">{this.props.icon}</i>
                         {this.props.label}

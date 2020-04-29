@@ -27,7 +27,7 @@ export default class TopStats extends Component {
         return (
             <div className="top-container">
                 <StatCard
-                    icon="mood_bad"
+                    icon="sentiment_very_dissatisfied"
                     label="Infected"
                     totalStats={cases.toLocaleString()}
                     todayStats={`Today ${this.props.totalCasesToday.toLocaleString()} new cases`}
@@ -36,7 +36,7 @@ export default class TopStats extends Component {
 
                 />
                 <StatCard
-                    icon="sentiment_very_dissatisfied"
+                    icon="airline_seat_flat"
                     label="Deaths"
                     totalStats={deaths.toLocaleString()}
                     todayStats={`Today ${this.props.totalDeathsToday.toLocaleString()} have died`}
@@ -52,8 +52,8 @@ export default class TopStats extends Component {
                     idGraph={"recoveredGraph"}
                 />
                 <StatCard
-                    icon="airline_seat_flat"
-                    label="Covid Tests"
+                    icon="track_changes"
+                    label="Examined"
                     totalStats="..."
                     icon2="group_add"
                     todayStats={0}
