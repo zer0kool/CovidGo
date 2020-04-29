@@ -35,7 +35,17 @@ export default class Feed extends Component {
                     {fetching}
                      {feedData.map(function(source, index){
                         return ( <li key={index} className="collection-item blue-grey darken-4 waves-effect">
-                            <a href={source.source}>{source.info}</a>
+                            <a href={source.source}>
+                               <i className="material-icons tiny">insert_link</i>
+                                <div className="paper">
+                                    <div className="icon">
+                                        <i className="material-icons">mic_none</i>
+                                    </div>
+                                    <div className="info">
+                                        {source.info}
+                                    </div>
+                                </div>
+                            </a>
                         </li> )
                     })}
                  </ul>
