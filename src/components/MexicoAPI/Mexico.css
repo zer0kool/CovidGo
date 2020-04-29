@@ -3,6 +3,5 @@
   height: 100%;
   border-top-right-radius: 35px;
   border-top-left-radius: 35px; }
-
-.modal.bottom-sheet .modal-content {
-  color: white; }
+  .modal.bottom-sheet .modal-content {
+    color: white; }
