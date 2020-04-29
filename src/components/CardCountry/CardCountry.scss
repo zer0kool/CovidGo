@@ -103,6 +103,7 @@ $tablet: 768px;
 
   @include tablet() {
     &:hover{
+      background-color: #3b4444;
       .iconContainer{
         .icon_moreInfo{
           // font-size: 20px;

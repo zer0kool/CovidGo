@@ -8,8 +8,6 @@
 # testing
 /coverage
 
-/src/components/*.css
-
 # production
 /build
 

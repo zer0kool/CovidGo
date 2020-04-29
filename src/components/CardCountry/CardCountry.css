@@ -74,6 +74,8 @@
   width: 120px; }
 
 @media (min-width: 768px) {
+  .CardCountry:hover {
+    background-color: #3b4444; }
   .CardCountry:hover .iconContainer .icon_moreInfo {
     transform: scale(1.3); }
   .CardCountry .container_country {

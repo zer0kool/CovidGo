@@ -1,0 +1,232 @@
+$tablet: 768px;
+@mixin tablet {
+    @media ( min-width: #{$tablet} ) {
+        @content;
+    }
+}
+
+$desktop: 1200px;
+@mixin desktop {
+    @media ( min-width: #{$desktop} ) {
+        @content;
+    }
+}
+
+.symptoms_container {
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-bottom: 100px;
+    @include desktop(){
+        padding: 0 50px;
+        
+    }
+    .symptoms_title {
+        display: block;
+        margin: 0 100px;
+        color: white;
+        text-align: center;
+    }
+
+    .symptoms_grid { 
+        margin-top: 50px;               
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 200px 150px 220px 220px 220px 220px 170px 400px;
+        color: white;        
+        grid-template-areas:
+            "title title title"
+            "fever cought breath "
+            "time time time"
+            "img1 img1 img1"
+            "sick sick sick"
+            "medical medical medical"
+            "heart link_more link_more"
+            "phrase phrase phrase";
+
+        @include desktop() {            
+            max-width: 1200px;
+            width: 100%;
+            grid-template-rows: 180px 80px 200px 220px 300px 230px  180px 400px;
+
+            grid-template-areas:
+                "title title title"
+                "fever breath cought"
+                "time time time"
+                "img1 img1 img1"
+                "sick sick sick"                
+                "medical medical medical"
+                "heart link_more link_more"
+                "phrase phrase phrase";
+            
+            
+        }
+    }
+
+    .grid_item {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .symptoms_grid_title {
+        grid-area: title;
+        text-transform: uppercase;
+        .text{
+            font-size: 48px;
+            // font-weight: bold;
+            letter-spacing: 5px;
+        }
+    }
+    .symptoms_grid_fever {
+        grid-area: fever;
+        font-size: 22px;
+        font-weight: bold;        
+        letter-spacing: 1px;
+    }
+    .symptoms_grid_cough {
+        grid-area: cought;
+        font-weight: bold;
+        font-size: 22px;        
+        letter-spacing: 1px;
+    }
+    .symptoms_grid_breath {
+        grid-area: breath;
+        text-align: center;
+        font-weight: bold;
+        font-size: 22px;    
+        letter-spacing: 1px;
+    }
+    .symptoms_grid_time {
+        grid-area: time;
+        font-size: 18px;
+        padding: 0 70px;
+        @include desktop() {
+            padding: 0 20px;        
+        }
+        .text-bold{
+            font-weight: bold;
+        }
+    }
+    .symptoms_grid_sick {
+        grid-area: sick;
+        padding: 0 70px;
+        @include desktop() {
+            padding: 0;        
+        }
+        p {
+            letter-spacing: 1px;
+            line-height: 1.7;
+            @include desktop() {
+                font-size: 24px;
+                
+            }
+            .txt_biggest {
+                font-size: 24px;
+                border-top: 2px solid #1de9b6;
+                @include desktop() {
+                    font-size: 48px;
+                    
+                }
+            }
+            .symptoms_grid_sick_bold {
+                font-weight: bold;
+            }
+        }
+    }
+    .symptoms_grid_img_1 {
+        grid-area: img1;
+        flex-direction: column;
+        .icon_home {
+            font-size: 80px;
+        }
+        p {
+            display: block;
+            font-size: 20px;
+            padding: 0;
+            margin: 0;
+        }
+    }
+    .symptoms_grid_medical {
+        grid-area: medical;
+        flex-direction: column;
+        padding: 0 70px;
+        @include desktop() {
+            padding: 0 20px;        
+        }
+        p {
+            font-size: 16px;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            @include desktop() {
+                font-size: 20px;      
+                padding: 350px;
+            }
+            .icon_medical {
+                font-size: 80px;
+                color: #333;
+                display: block;
+            }
+            span {
+                margin-top: 10px;
+                display: inline-block;
+                line-height: 1.2;
+                text-align: center;
+            }
+        }
+    }
+    .symptoms_grid_link_more {
+        grid-area: link_more;
+        a {
+            font-size: 22px;
+            text-align: center;
+            font-style: italic;
+        }
+    }
+    .symptoms_grid_heart {
+        grid-area: heart;
+        .icon_heart {
+            font-size: 80px;
+            animation: beat 1s ease 0s infinite normal;
+        }
+    }
+    .symptoms_grid_phrase{
+        grid-area: phrase;
+        background-color: #0062A8;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        .symptoms_phrase_stay{
+            letter-spacing: 4px;
+            font-size: 70px;
+            text-transform: uppercase;
+        }
+        .symptoms_phrase_actions{
+            background-color: #fff;
+            color:#0062A8;
+            padding: 15px 30px;
+            font-size: 20px ;
+            // font-weight: bold;
+        }
+    }
+}
+
+@keyframes beat {
+    0% {
+        transform: scale(1);
+    }
+    40% {
+        transform: scale(1.1);
+    }
+    70%,
+    100% {
+        transform: scale(1);
+    }
+}
