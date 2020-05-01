@@ -30,7 +30,9 @@ export default class TopStats extends Component {
                     icon="sentiment_very_dissatisfied"
                     label="Infected"
                     totalStats={cases.toLocaleString()}
-                    todayStats={`Today ${this.props.totalCasesToday.toLocaleString()} new cases`}
+                    icon2="group_add"
+                    todayStats={this.props.totalCasesToday.toLocaleString()}
+                    today="New cases today."
                     dataGraph={this.state.dataCasesGraph}
                     idGraph={"infectedGraph"}
 
@@ -39,7 +41,9 @@ export default class TopStats extends Component {
                     icon="airline_seat_flat"
                     label="Deaths"
                     totalStats={deaths.toLocaleString()}
-                    todayStats={`Today ${this.props.totalDeathsToday.toLocaleString()} have died`}
+                    icon2="group_add"
+                    todayStats={this.props.totalDeathsToday.toLocaleString()}
+                    today="Have died today."
                     dataGraph={this.state.dataDeathsGraph}
                     idGraph={"deathsGraph"}
                 />
@@ -47,7 +51,9 @@ export default class TopStats extends Component {
                     icon="healing"
                     label="Recovered"
                     totalStats={recovered.toLocaleString()}
-                    todayStats={` ${this.props.totalRemaining.toLocaleString()} remaining`}
+                    icon2="group_add"
+                    todayStats={this.props.totalRemaining.toLocaleString()}
+                    today="Remaining to heal"
                     dataGraph={this.state.dataRecoveredGraph}
                     idGraph={"recoveredGraph"}
                 />
@@ -57,6 +63,7 @@ export default class TopStats extends Component {
                     totalStats="..."
                     icon2="group_add"
                     todayStats={0}
+                    today="Examin today."
                 />
             </div>
         );

@@ -28,6 +28,8 @@ export default class TopStats extends Component {
                             {this.props.icon2}
                         </i>
                         {this.props.todayStats}
+                        <br></br>
+                        {this.props.today}
                     </p>
                 </div>
                 <div className="card-reveal">
