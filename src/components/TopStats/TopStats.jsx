@@ -53,7 +53,7 @@ export default class TopStats extends Component {
                     totalStats={recovered.toLocaleString()}
                     icon2="group_add"
                     todayStats={this.props.totalRemaining.toLocaleString()}
-                    today="Remaining to heal"
+                    today="remaining to heal"
                     dataGraph={this.state.dataRecoveredGraph}
                     idGraph={"recoveredGraph"}
                 />
