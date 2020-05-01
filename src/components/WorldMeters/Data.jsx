@@ -35,23 +35,41 @@ export default class WorldMeters extends Component {
     componentDidMount(){
         this.setState({ isLoading: true })
         let self = this
-        let dataParsed = [];
+        let dataParsed = {today:[], yesturday:[]};
         let parser = new DOMParser();
         fetch(proxy+Endpoint)
             .then(response => response.text())
             .then(function (html){
                 try {
                     var htmlDom = parser.parseFromString(html, "text/html");
-                    var table = htmlDom.querySelectorAll("#main_table_countries_today tr");
+                    var todayTable = htmlDom.querySelectorAll("#main_table_countries_today tr");
+                    var yesturdayTable = htmlDom.querySelectorAll("#main_table_countries_yesterday tr");
 
-                    table.forEach( scrape => {
-                        let country = {country: "", activeCases:"", critical:"", totalTests:""};
+                    todayTable.forEach( scrape => {
+                        let country = {country:"", totalCases:"", newCases:"", totalDeaths:"", newDeaths:"", activeCases:"", critical:"", totalTests:""};
                         country.country = scrape.cells[0].innerText;
+                        country.totalCases = scrape.cells[1].innerText;
+                        country.newCases = scrape.cells[2].innerText;
+                        country.totalDeaths = scrape.cells[3].innerText;
+                        country.newDeaths = scrape.cells[4].innerText;
                         country.activeCases = scrape.cells[6].innerText;
                         country.critical = scrape.cells[7].innerText;
                         country.totalTests = scrape.cells[10].innerText;
 
-                        dataParsed.push(country);
+                        dataParsed.today.push(country);
+                    })
+                    yesturdayTable.forEach( scrape => {
+                        let country = {country:"", totalCases:"", newCases:"", totalDeaths:"", newDeaths:"", activeCases:"", critical:"", totalTests:""};
+                        country.country = scrape.cells[0].innerText;
+                        country.totalCases = scrape.cells[1].innerText;
+                        country.newCases = scrape.cells[2].innerText;
+                        country.totalDeaths = scrape.cells[3].innerText;
+                        country.newDeaths = scrape.cells[4].innerText;
+                        country.activeCases = scrape.cells[6].innerText;
+                        country.critical = scrape.cells[7].innerText;
+                        country.totalTests = scrape.cells[10].innerText;
+
+                        dataParsed.yesturday.push(country);
                     })
 
                 }catch (error) {console.log(`Error inside the worldometers parsing function: ${error}`)}
