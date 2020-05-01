@@ -32,7 +32,7 @@ export default class TopStats extends Component {
                     totalStats={cases.toLocaleString()}
                     icon2="group_add"
                     todayStats={this.props.totalCasesToday.toLocaleString()}
-                    today="New cases today."
+                    today="new cases today"
                     dataGraph={this.state.dataCasesGraph}
                     idGraph={"infectedGraph"}
 
@@ -43,7 +43,7 @@ export default class TopStats extends Component {
                     totalStats={deaths.toLocaleString()}
                     icon2="group_add"
                     todayStats={this.props.totalDeathsToday.toLocaleString()}
-                    today="Have died today."
+                    today="have died today"
                     dataGraph={this.state.dataDeathsGraph}
                     idGraph={"deathsGraph"}
                 />
@@ -63,7 +63,7 @@ export default class TopStats extends Component {
                     totalStats="..."
                     icon2="group_add"
                     todayStats={0}
-                    today="Examin today."
+                    today="examined today"
                 />
             </div>
         );
