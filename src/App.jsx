@@ -16,7 +16,7 @@ import WhatIsCovid from "./components/WhatIsCovid/WhatIsCovid"
 import Precautions from './components/Precautions/Precautions'
 import Symptoms from './components/Symptoms/Symptoms'
 import Feed from './components/Feed/Feed'
-import Mexico from "./components/MexicoAPI/Mexico";
+import Modal from "./components/Modal/Modal";
 
 function App() {
     return (
@@ -37,9 +37,7 @@ function App() {
                 </Switch>
             </main>
 
-            <div id="viewbystate" className="modal bottom-sheet blue-grey darken-4">
-                <Mexico />
-            </div>
+            <Modal />
 
             <div  data-target="slide-out" className="right fixed-action-btn sidenav-trigger btn-large btn-floating waves-effect waves-light red"><i className="material-icons">menu</i></div>
             <Footer />

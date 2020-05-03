@@ -1,12 +1,11 @@
 import React, { Component } from "react";
 
-import "./Mexico.css"
 
 //  using proxy to bypass cors
 const proxy = "https://cors-anywhere.herokuapp.com/";
 const Endpoint = "https://covid19.sinave.gob.mx/Log.aspx/Grafica22";
 
-export default class MXCall extends Component {
+export default class Mexico extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -16,12 +15,14 @@ export default class MXCall extends Component {
         };
     }
 
+
     render() {
         const { estadosMX, isLoading, error } = this.state;
 
         if ( !estadosMX ){ return <p className="white-text"> No MexicoData...</p>;}
         if ( isLoading ){ var fetching = <p className="white-text"> Loading Mexico Data...</p>;}
         if ( error ){ return <p className="white-text"> {error.message} </p>;}
+
 
         return (
             <div className="modal-content">
@@ -81,3 +82,4 @@ export default class MXCall extends Component {
     }
 
 }
+

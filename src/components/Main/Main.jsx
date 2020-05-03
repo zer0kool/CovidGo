@@ -1,13 +1,14 @@
-import React, { Component, Fragment } from "react";
+import React, { Component, Fragment, lazy, Suspense} from "react";
 
 //CSS
 import "./Main.css";
 //Components
 import Loading from "../Loading/Loading";
 import SearchCountries from "../SearchCountries/SearchCountries";
-//import GlobalChart from "../GlobalChart/GlobalChart";
-import DistributionChart from "../DistributionChart/DistributionChart";
 import TopStats from "../TopStats/TopStats";
+
+//lazyLodaded
+const DistributionChart = lazy(() => import ( "../DistributionChart/DistributionChart"))
 
 export default class Main extends Component {
     constructor(props) {
@@ -41,6 +42,7 @@ export default class Main extends Component {
                             />
                         </div>
                         <div className="distributionChartContainer">
+                           <Suspense fallback={<div> Loading ......</div>}>
                             {this.state.totalRemaining > 0 && (
                                 <DistributionChart
                                     allInformation={this.state.allInformation}
@@ -48,6 +50,7 @@ export default class Main extends Component {
                                     totalRemaining={this.state.totalRemaining}
                                 />
                             )}
+                            </Suspense>
                         </div>
 
                     </Fragment>

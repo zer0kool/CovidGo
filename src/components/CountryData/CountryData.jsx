@@ -3,6 +3,7 @@ import React, {useState,useEffect, Fragment} from 'react';
 import TopStats from '../TopStats/TopStats'
 import PersonChart from '../PersonChart/PersonChart'
 import Loading from '../Loading/Loading'
+import ModalButton from '../Modal/bundle/ModalButton'
 
 import './CountryData.css'
 
@@ -26,8 +27,8 @@ const CountryData = (props) => {
 
     },[])
 
-    if ((/^\/country\/Mexico\/MX/).test(window.location.pathname)){
-            var stateBtn = <button className="waves-effect waves-light btn modal-trigger" data-target="viewbystate">View by State</button>
+    if (name === "Mexico"){
+            var viewByState = <ModalButton />
     }
 
   return (
@@ -35,7 +36,7 @@ const CountryData = (props) => {
       <div className="country_header">
         <img className="flag" src={flagSrc} alt={name} />
         <h3 className="white-text">{name} </h3>
-         {stateBtn}
+         {viewByState}
       </div>
       {
         (countryData)?

@@ -5,6 +5,7 @@ import "./TopStats.css";
 
 //components
 import StatCard from "../StatCard/StatCard";
+//import Data from "../WolrdMeters/Data";
 // import GlobalGraph from "../GlobalGraph/GlobalGraph";
 
 let globalStatsEndPoint = "https://api.coronastatistics.live/timeline/global";
