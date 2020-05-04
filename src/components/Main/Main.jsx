@@ -42,17 +42,16 @@ export default class Main extends Component {
                             />
                         </div>
                         <div className="distributionChartContainer">
-                           <Suspense fallback={<div> Loading ......</div>}>
                             {this.state.totalRemaining > 0 && (
+                                <Suspense fallback={<div> Loading ......</div>}>
                                 <DistributionChart
                                     allInformation={this.state.allInformation}
                                     totalCasesToday={this.state.totalCasesToday}
                                     totalRemaining={this.state.totalRemaining}
                                 />
+                                </Suspense>
                             )}
-                            </Suspense>
                         </div>
-
                     </Fragment>
                 ) : (
                     <div>

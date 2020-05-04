@@ -40,7 +40,7 @@ export default class SideNav extends Component {
              <div className="col s12 m6">
                 <div className="card horizontal">
                   <div className="card-image">
-                    <img src="./microCovid.png" />
+                    <img decoding="async" loading="lazy" src="./microCovid.png" />
                   </div>
                   <div className="card-stacked">
                     <div className="card-content">
@@ -61,11 +61,11 @@ export default class SideNav extends Component {
                   <span>We are software engineers passionate about discovering and learning new skills. Either by creating tools for the community or by participating in hackathons to challange our creativity.</span>
                   <br></br>
                   <div className="chip">
-                        <img src="wavook.png" alt="Contact Person" />
+                        <img decoding="async" loading="lazy" src="wavook.png" alt="Contact Person" />
                         Ulises Cervantes
                     </div>
                     <div className="chip">
-                        <img src="wavook.png" alt="Contact Person" />
+                        <img decoding="async" loading="lazy" src="wavook.png" alt="Contact Person" />
                         Alejandro Loaiza
                     </div>
               </div>

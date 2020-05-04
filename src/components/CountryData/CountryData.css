@@ -7,4 +7,5 @@
 .countryData_container .country_header .flag {
   height: 180px;
   width: 250px;
-  object-fit: cover; }
+  object-fit: cover;
+  margin: 40px 0 0 0; }

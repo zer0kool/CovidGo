@@ -56,11 +56,11 @@ export default class Footer extends Component {
                             <div className="Build blue-grey darken-4">
                              <h5 className="white-text">Build By Wavook</h5>
                               <div className="chip">
-                                  <img src="wavook.png" alt="Contact Person" />
+                                  <img decoding="async" loading="lazy" src="wavook.png" alt="Contact Person" />
                                 Ulises Cervantes
                               </div>
                                <div className="chip">
-                                   <img src="wavook.png" alt="Contact Person" />
+                                   <img decoding="async" loading="lazy" src="wavook.png" alt="Contact Person" />
                                 Alejandro Loaiza
                               </div>
                             </div>

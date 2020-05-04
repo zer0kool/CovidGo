@@ -297,6 +297,8 @@ export default class SearchCountries extends Component {
         });
         this.sortCountries();
     }
+
+//    {/* <SelectFilter sort={this.sortCountries.bind(this)} /> */}
     render() {
         return (
             <div className="SearchCountries">
@@ -305,22 +307,19 @@ export default class SearchCountries extends Component {
                     <InputFilterByName
                         filterCountries={this.filterCountries.bind(this)}
                     />
-                    {/* <SelectFilter sort={this.sortCountries.bind(this)} /> */}
                 </div>
                 <div className="countryList">
+                   <Suspense fallback = { <div>Loading Countries</div>}>
                     {this.state.countries.length > 0 ? (
                         this.state.countries.map((country, index) => {
                             let flagCode = (this.state.flags[country.country]) ? this.state.flags[country.country]: "unknown"
                             let flagSrc = `https://coronastatistics.live/assets/flags/${flagCode}.svg`;
                             return (
                                 <Link to={`country/${country.country}/${ flagCode }`} key={index}>
-                                   <Suspense fallback = {<div> Loading....... </div>}>
                                     <CardCountry
                                         flagCode={`${flagSrc.toLowerCase()}`}
                                         country={country}
-
                                     />
-                                    </Suspense>
                                 </Link>
                             );
                         })
@@ -329,6 +328,7 @@ export default class SearchCountries extends Component {
                             Country Not Found.
                         </div>
                     )}
+                    </Suspense>
                 </div>
             </div>
         );

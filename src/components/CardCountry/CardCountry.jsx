@@ -28,7 +28,7 @@ export default class CardCountry extends Component {
                         
                         <div className="left">
                             <div className="flag_country">
-                                <img src={this.props.flagCode} alt={country} />
+                                <img decoding="async" loading="lazy" src={this.props.flagCode} alt={country} />
                             </div>
                             <div className="data_country">
                                 <span className="name_country">{country}</span>
