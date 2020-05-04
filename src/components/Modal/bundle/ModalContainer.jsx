@@ -1,18 +1,12 @@
 import React, { Component } from "react";
 import Mexico from './data/Mexico';
 
-
+//if more countries states are added the logic should be done here.
 export default () => {
-
-
-        if ((/^\/country\/Mexico\/MX/).test(window.location.pathname)){
-             var callStateData = <Mexico />
-         }
-
 
         return (
             <>
-               {callStateData}
+               <Mexico></Mexico>
             </>
         );
 }
