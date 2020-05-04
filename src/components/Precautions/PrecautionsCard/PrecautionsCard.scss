@@ -1,0 +1,23 @@
+
+.precautions_card{
+    background-color: #333;
+    padding: 20px;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    transition: background 0.5s;
+
+    &:hover{
+        background-color: #e91e63;
+    }
+
+    .img_card{
+        max-width: 100px;
+        margin-bottom: 10px;
+    }
+    .text_card{
+        text-align: center;
+    }
+}

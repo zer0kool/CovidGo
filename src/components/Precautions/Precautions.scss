@@ -1,0 +1,35 @@
+
+$desktop: 991px;
+@mixin desktop {
+    @media (min-width: #{$desktop} ) {
+        @content;
+    }
+}
+
+.precautions{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 50px 0;
+    .precautions_content{
+
+        max-width: 1500px;
+        display: grid;
+        margin: 40px;
+        grid-gap:10px;
+        grid-auto-flow: dense;
+        @include desktop() {
+            grid-template-areas:
+            "img1 img1 img6 img5"
+            "img7 img3 img6 img2"
+            "img7 img4 img4 img4";
+
+            @for $i from 1 to 8 {
+                div:nth-child(#{$i}){
+                    grid-area: img#{$i};
+                }
+            }
+        }
+    }
+}

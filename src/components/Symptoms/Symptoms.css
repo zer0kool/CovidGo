@@ -22,14 +22,14 @@
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 200px 150px 220px 220px 220px 220px 170px 400px;
   color: white;
-  grid-template-areas: "title title title" "fever cought breath " "time time time" "img1 img1 img1" "sick sick sick" "medical medical medical" "heart link_more link_more" "phrase phrase phrase"; }
+  grid-template-areas: "title title title" "fever cought breath " "time time time" "img1 img1 img1" "sick sick sick" "medical medical medical" "heart link_more link_more" "phrase phrase phrase"; }
 
 @media (min-width: 1200px) {
   .symptoms_container .symptoms_grid {
     max-width: 1200px;
     width: 100%;
     grid-template-rows: 180px 80px 200px 220px 300px 230px  180px 400px;
-    grid-template-areas: "title title title" "fever breath cought" "time time time" "img1 img1 img1" "sick sick sick"                 "medical medical medical" "heart link_more link_more" "phrase phrase phrase"; } }
+    grid-template-areas: "title title title" "fever breath cought" "time time time" "img1 img1 img1" "sick sick sick"                 "medical medical medical" "heart link_more link_more" "phrase phrase phrase"; } }
 
 .symptoms_container .grid_item {
   display: flex;
