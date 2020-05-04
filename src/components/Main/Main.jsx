@@ -30,52 +30,17 @@ export default class Main extends Component {
 
     render() {
         return (
-<<<<<<< HEAD
-            <div className="Main">
-                {this.state.affectedCountries.length > 0 ? (
-                    <Fragment>
-                        <div className="topStatsCotainer">
-                            <TopStats
-                                allInformation={this.state.allInformation}
-                                totalCasesToday={this.state.totalCasesToday}
-                                totalDeathsToday={this.state.totalDeathsToday}
-                                totalRemaining={this.state.totalRemaining}
-                            />
-                        </div>
-                        <div className="searchCountriesContainer">
-                            <SearchCountries
-                                countries={this.state.affectedCountries}
-                            />
-                        </div>
-                        <div className="distributionChartContainer">
-                            {this.state.totalRemaining > 0 && (
-                                <Suspense fallback={<div> Loading ......</div>}>
-                                <DistributionChart
-=======
             <Suspense fallback={<Loading/>}>
                 <div className="Main">
                     {this.state.affectedCountries.length > 0 ? (
                         <Fragment>
                             <div className="topStatsCotainer">
                                 <TopStats
->>>>>>> origin/ulises-dev
                                     allInformation={this.state.allInformation}
                                     totalCasesToday={this.state.totalCasesToday}
                                     totalDeathsToday={this.state.totalDeathsToday}
                                     totalRemaining={this.state.totalRemaining}
                                 />
-<<<<<<< HEAD
-                                </Suspense>
-                            )}
-                        </div>
-                    </Fragment>
-                ) : (
-                    <div>
-                        <Loading />
-                    </div>
-                )}
-            </div>
-=======
                             </div>
                             <div className="searchCountriesContainer">
                                 <SearchCountries
@@ -98,7 +63,6 @@ export default class Main extends Component {
                         )}
                 </div>
             </Suspense>
->>>>>>> origin/ulises-dev
         );
     }
 
