@@ -1,14 +1,19 @@
-import React, { Component, Fragment, lazy, Suspense} from "react";
+import React, { Component, Fragment, lazy, Suspense } from "react";
 
 //CSS
 import "./Main.css";
 //Components
 import Loading from "../Loading/Loading";
-import SearchCountries from "../SearchCountries/SearchCountries";
-import TopStats from "../TopStats/TopStats";
+// import SearchCountries from "../SearchCountries/SearchCountries";
+// import TopStats from "../TopStats/TopStats";
 
 //lazyLodaded
-const DistributionChart = lazy(() => import ( "../DistributionChart/DistributionChart"))
+const DistributionChart = lazy(() => import("../DistributionChart/DistributionChart"))
+const TopStats = lazy(() => import("../TopStats/TopStats"))
+const SearchCountries  = lazy(() => import( "../SearchCountries/SearchCountries" ))
+
+
+
 
 export default class Main extends Component {
     constructor(props) {
@@ -25,41 +30,39 @@ export default class Main extends Component {
 
     render() {
         return (
-            <div className="Main">
-                {this.state.affectedCountries.length > 0 ? (
-                    <Fragment>
-                        <div className="topStatsCotainer">
-                            <TopStats
-                                allInformation={this.state.allInformation}
-                                totalCasesToday={this.state.totalCasesToday}
-                                totalDeathsToday={this.state.totalDeathsToday}
-                                totalRemaining={this.state.totalRemaining}
-                            />
-                        </div>
-                        <div className="searchCountriesContainer">
-                            <SearchCountries
-                                countries={this.state.affectedCountries}
-                            />
-                        </div>
-                        <div className="distributionChartContainer">
-                           <Suspense fallback={<div> Loading ......</div>}>
-                            {this.state.totalRemaining > 0 && (
-                                <DistributionChart
+            <Suspense fallback={<Loading/>}>
+                <div className="Main">
+                    {this.state.affectedCountries.length > 0 ? (
+                        <Fragment>
+                            <div className="topStatsCotainer">
+                                <TopStats
                                     allInformation={this.state.allInformation}
                                     totalCasesToday={this.state.totalCasesToday}
+                                    totalDeathsToday={this.state.totalDeathsToday}
                                     totalRemaining={this.state.totalRemaining}
                                 />
-                            )}
-                            </Suspense>
-                        </div>
+                            </div>
+                            <div className="searchCountriesContainer">
+                                <SearchCountries
+                                    countries={this.state.affectedCountries}
+                                />
+                            </div>
+                            <div className="distributionChartContainer">
+                                    {this.state.totalRemaining > 0 && (
+                                        <DistributionChart
+                                            allInformation={this.state.allInformation}
+                                            totalCasesToday={this.state.totalCasesToday}
+                                            totalRemaining={this.state.totalRemaining}
+                                        />
+                                    )}
+                            </div>
 
-                    </Fragment>
-                ) : (
-                    <div>
-                        <Loading />
-                    </div>
-                )}
-            </div>
+                        </Fragment>
+                    ) : (
+                            <Loading/>
+                        )} 
+                </div>
+            </Suspense>
         );
     }
 

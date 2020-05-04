@@ -4,12 +4,13 @@ import {Link} from "react-router-dom"
 import "./SearchCountries.css";
 
 //Components
-//import CardCountry from "../CardCountry/CardCountry";
+import CardCountry from "../CardCountry/CardCountry";
 import InputFilterByName from "../InputFilterByName/InputFilterByName";
 // import SelectFilter from "../SelectFilter/SelectFilter";
 
+
 //lazyLoaded
-const CardCountry = lazy(() => import ("../CardCountry/CardCountry"))
+// const CardCountry = lazy(() => import ("../CardCountry/CardCountry"))
 
 export default class SearchCountries extends Component {
     constructor(props) {
@@ -314,13 +315,10 @@ export default class SearchCountries extends Component {
                             let flagSrc = `https://coronastatistics.live/assets/flags/${flagCode}.svg`;
                             return (
                                 <Link to={`country/${country.country}/${ flagCode }`} key={index}>
-                                   <Suspense fallback = {<div> Loading....... </div>}>
                                     <CardCountry
                                         flagCode={`${flagSrc.toLowerCase()}`}
                                         country={country}
-
                                     />
-                                    </Suspense>
                                 </Link>
                             );
                         })
