@@ -1,11 +1,10 @@
 import React, {useState,useEffect, Fragment} from 'react';
 
+import './CountryData.css'
 import TopStats from '../TopStats/TopStats'
 import PersonChart from '../PersonChart/PersonChart'
 import Loading from '../Loading/Loading'
 import ModalButton from '../Modal/bundle/ModalButton'
-
-import './CountryData.css'
 
 const CountryData = (props) => {
   const {name,code} = props.match.params;

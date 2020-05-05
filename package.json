@@ -1,6 +1,7 @@
 {
-  "name": "covid19mx-app",
-  "version": "0.1.0",
+  "name": "CovidGo",
+  "homepage": "https://www.covidgo.info/",
+  "version": "0.2.2",
   "private": true,
   "dependencies": {
     "@amcharts/amcharts4": "^4.9.13",

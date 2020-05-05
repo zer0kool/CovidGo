@@ -30,24 +30,29 @@ export default class Main extends Component {
 
     render() {
         return (
-            <Suspense fallback={<Loading/>}>
+
                 <div className="Main">
                     {this.state.affectedCountries.length > 0 ? (
                         <Fragment>
                             <div className="topStatsCotainer">
+                                <Suspense fallback={<div></div>}>
                                 <TopStats
                                     allInformation={this.state.allInformation}
                                     totalCasesToday={this.state.totalCasesToday}
                                     totalDeathsToday={this.state.totalDeathsToday}
                                     totalRemaining={this.state.totalRemaining}
                                 />
+                                </Suspense>
                             </div>
                             <div className="searchCountriesContainer">
+                                <Suspense fallback={<div></div>}>
                                 <SearchCountries
                                     countries={this.state.affectedCountries}
                                 />
+                                </Suspense>
                             </div>
                             <div className="distributionChartContainer">
+                                <Suspense fallback={<div></div>}>
                                     {this.state.totalRemaining > 0 && (
                                         <DistributionChart
                                             allInformation={this.state.allInformation}
@@ -55,6 +60,7 @@ export default class Main extends Component {
                                             totalRemaining={this.state.totalRemaining}
                                         />
                                     )}
+                                </Suspense>
                             </div>
 
                         </Fragment>
@@ -62,7 +68,7 @@ export default class Main extends Component {
                             <Loading/>
                         )}
                 </div>
-            </Suspense>
+
         );
     }
 
