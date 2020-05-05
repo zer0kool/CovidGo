@@ -1,0 +1,11 @@
+.countryData_container .country_header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column; }
+
+.countryData_container .country_header .flag {
+  height: 180px;
+  width: 250px;
+  object-fit: cover;
+  margin: 40px 0 0 0; }
