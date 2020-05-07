@@ -5,11 +5,11 @@ import "./Main.css";
 //Components
 import Loading from "../Loading/Loading";
 // import SearchCountries from "../SearchCountries/SearchCountries";
-// import TopStats from "../TopStats/TopStats";
+ import TopStats from "../TopStats/TopStats";
 
 //lazyLodaded
 const DistributionChart = lazy(() => import("../DistributionChart/DistributionChart"))
-const TopStats = lazy(() => import("../TopStats/TopStats"))
+//const TopStats = lazy(() => import("../TopStats/TopStats"))
 const SearchCountries  = lazy(() => import( "../SearchCountries/SearchCountries" ))
 
 

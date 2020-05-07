@@ -1,4 +1,4 @@
-import React, { Component, lazy, Suspense } from "react";
+import React, {Fragment, Component, lazy, Suspense } from "react";
 import {Link} from "react-router-dom"
 //CSS
 import "./SearchCountries.css";
@@ -309,6 +309,7 @@ export default class SearchCountries extends Component {
                         filterCountries={this.filterCountries.bind(this)}
                     />
                 </div>
+                <Fragment>
                 <div className="countryList">
                    <Suspense fallback = { <div>Loading Countries</div>}>
                     {this.state.countries.length > 0 ? (
@@ -331,6 +332,7 @@ export default class SearchCountries extends Component {
                     )}
                     </Suspense>
                 </div>
+                </Fragment>
             </div>
         );
     }

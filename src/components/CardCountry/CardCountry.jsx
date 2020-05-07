@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 
 //CSS
 import "./CardCountry.css";
@@ -19,6 +19,7 @@ export default class CardCountry extends Component {
         } = this.props.country;
 
         return (
+            <Fragment>
             <div className="CardCountry">
                 <span className="iconContainer">
                     <AiFillPlusCircle className="icon_moreInfo blue-text" />
@@ -63,6 +64,7 @@ export default class CardCountry extends Component {
                     </div>
                 }
             </div>
+            </Fragment>
         );
     }
 }

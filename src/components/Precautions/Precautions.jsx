@@ -28,8 +28,6 @@ export default function Precautions() {
 
     return (
         <Fragment>
-
-
             <div className="precautions">
                 <h2 className="white-text">Taking Precautions</h2>
                 <div className="precautions_content">
@@ -37,9 +35,8 @@ export default function Precautions() {
                         precautionsTextArray.map( (itemText,index) => <PrecautionsCard text={itemText} imgNum={index+1} key={index} />)
                     }
                 </div>
-                <Wavook />
             </div>
+            <Wavook />
         </Fragment>
-
     )
 }
