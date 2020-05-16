@@ -97,9 +97,9 @@ export default class TopStats extends Component {
             const getDeaths = { date:date , value:deaths }
             const getRecovered = { date:date , value:recovered }
 
-            const newCase = Object.create(getCases)
-            const newDeath = Object.create(getDeaths)
-            const newRecovery = Object.create(getRecovered)
+            const newCase = getCases
+            const newDeath = getDeaths
+            const newRecovery = getRecovered
 
             casesArray.push(newCase);
             deathsArray.push(newDeath);
