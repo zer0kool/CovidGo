@@ -21,7 +21,7 @@ export default class GlobalGraph extends Component {
         }
     }
     createGraph = (dataToGraph)=>{
-
+            console.log(dataToGraph)
             // Themes begin
             am4core.useTheme(am4themes_dark);
             am4core.useTheme(am4themes_animated);
@@ -45,8 +45,6 @@ export default class GlobalGraph extends Component {
             series.dataFields.valueY = "value";
             series.dataFields.dateX = "date";
             series.tooltipText = "{value}"
-            series.strokeWidth = 2;
-            series.minBulletDistance = 15;
 
             // Drop-shaped tooltips
             series.tooltip.background.cornerRadius = 20;
@@ -59,22 +57,17 @@ export default class GlobalGraph extends Component {
 
             // Make bullets grow on hover
             let bullet = series.bullets.push(new am4charts.CircleBullet());
-            bullet.circle.strokeWidth = 2;
-            bullet.circle.radius = 4;
+            bullet.circle.strokeWidth = 1;
+            bullet.circle.radius = 3;
             bullet.circle.fill = am4core.color("#fff");
 
             let bullethover = bullet.states.create("hover");
-            bullethover.properties.scale = 2.3;
+            bullethover.properties.scale = 1.5;
 
             // Make a panning cursor
             chart.cursor = new am4charts.XYCursor();
-            chart.cursor.behavior = "panXY";
             chart.cursor.xAxis = dateAxis;
             chart.cursor.snapToSeries = series;
-
-            dateAxis.start = 0;//from point to start the line of the graph
-            dateAxis.keepSelection = true;
-
 
     }
 
