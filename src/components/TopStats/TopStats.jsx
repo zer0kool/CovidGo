@@ -13,6 +13,8 @@ export default class TopStats extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            isLoading: false,
+            error: null,
             globalTotal: { cases: 0, deaths: 0, recovered: 0 },
             dataCasesGraph:[],
             dataDeathsGraph:[],
@@ -23,9 +25,15 @@ export default class TopStats extends Component {
 
     render() {
         const { cases, deaths, recovered } = this.props.allInformation;
+        const { isLoading, error } = this.state;
 
+//        if ( !graphData ){ return <p className="white-text"> No graphData...</p>;}
+        if ( isLoading ){var fetching = <p className="white-text"> Loading graphData...</p>;}
+        if ( error ){ return <p className="white-text"> {error.message} </p>;}
 
         return (
+            <>
+            {fetching}
             <div className="top-container">
                 <StatCard
                     icon="sentiment_very_dissatisfied"
@@ -67,50 +75,39 @@ export default class TopStats extends Component {
                     today="examined today"
                 />
             </div>
+            </>
         );
     }
 
     componentDidMount = async () =>{
-        let globalStatsCall = await fetch(globalStatsEndPoint);
-        if (globalStatsCall.ok) {
-            try {
-                var globalStatsResponse = await globalStatsCall.json();
-            } catch (error) {
-                console.error(error);
-            }
-        } else {
-            console.error(
-                `HTTP_ERROR on ${globalStatsEndPoint}, Status: ${globalStatsCall.status}`
-            );
-        }
-
+        this.setState({ isLoading: true })
+        let self = this
         let casesArray=[];
         let deathsArray=[];
         let recoveredArray = [];
+        fetch(globalStatsEndPoint)
+            .then( response => response.json() )
+            .then( function (rawJson) { try{
+                Object.entries(rawJson).forEach(function([
+                    date,
+                    { cases,deaths,recovered }
+                ]) {
+                    const getCases = { date:date , value:cases }
+                    const getDeaths = { date:date , value:deaths }
+                    const getRecovered = { date:date , value:recovered }
 
-        Object.entries(globalStatsResponse).forEach(function([
-            date,
-            { cases,deaths,recovered }
-        ]) {
+                    casesArray.push(getCases);
+                    deathsArray.push(getDeaths);
+                    recoveredArray.push(getRecovered);
+                })
+                } catch (error) {console.log(`Error inside the parsing function: ${error}`)}
+            self.setState({
+                dataCasesGraph:casesArray,
+                dataDeathsGraph:deathsArray,
+                dataRecoveredGraph:recoveredArray,
+                isLoading: false
+            })
 
-            const getCases = { date:date , value:cases }
-            const getDeaths = { date:date , value:deaths }
-            const getRecovered = { date:date , value:recovered }
-
-            const newCase = getCases
-            const newDeath = getDeaths
-            const newRecovery = getRecovered
-
-            casesArray.push(newCase);
-            deathsArray.push(newDeath);
-            recoveredArray.push(newRecovery);
-
-        });
-        this.setState({
-            dataCasesGraph:casesArray,
-            dataDeathsGraph:deathsArray,
-            dataRecoveredGraph:recoveredArray
-        })
-
+        }).catch( error => this.setState({ error, isLoading: false }))
     }
 }

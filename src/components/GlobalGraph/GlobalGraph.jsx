@@ -58,16 +58,18 @@ export default class GlobalGraph extends Component {
             // Make bullets grow on hover
             let bullet = series.bullets.push(new am4charts.CircleBullet());
             bullet.circle.strokeWidth = 1;
-            bullet.circle.radius = 3;
+            bullet.circle.radius = 2;
             bullet.circle.fill = am4core.color("#fff");
 
             let bullethover = bullet.states.create("hover");
-            bullethover.properties.scale = 1.5;
+            bullethover.properties.scale = .3;
 
             // Make a panning cursor
             chart.cursor = new am4charts.XYCursor();
             chart.cursor.xAxis = dateAxis;
             chart.cursor.snapToSeries = series;
+
+
 
     }
 
