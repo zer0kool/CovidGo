@@ -37,8 +37,6 @@ export default class TopStats extends Component {
                         <div className="graph">
                             <GlobalGraph idGraph={this.props.idGraph} data= {this.props.dataGraph} />
                         </div>
-
-
                 </div>
             </div>
         );

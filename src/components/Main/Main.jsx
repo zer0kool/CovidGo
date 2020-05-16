@@ -72,6 +72,7 @@ export default class Main extends Component {
         );
     }
 
+    // expensive computation, this data is already on API
     getTotalCasesToday = () => {
         let totalCasesToday = 0;
         this.state.data.map((country) => {

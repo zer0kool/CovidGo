@@ -2,6 +2,7 @@ import React, { Component } from "react";
 
 //CSS
 import "./TopStats.css";
+import M from "materialize-css";
 
 //components
 import StatCard from "../StatCard/StatCard";
@@ -27,13 +28,10 @@ export default class TopStats extends Component {
         const { cases, deaths, recovered } = this.props.allInformation;
         const { isLoading, error } = this.state;
 
-//        if ( !graphData ){ return <p className="white-text"> No graphData...</p>;}
-        if ( isLoading ){var fetching = <p className="white-text"> Loading graphData...</p>;}
+        if ( isLoading ){var fetching = console.log("loading StatCards")}
         if ( error ){ return <p className="white-text"> {error.message} </p>;}
 
         return (
-            <>
-            {fetching}
             <div className="top-container">
                 <StatCard
                     icon="sentiment_very_dissatisfied"
@@ -75,11 +73,11 @@ export default class TopStats extends Component {
                     today="examined today"
                 />
             </div>
-            </>
         );
     }
 
     componentDidMount = async () =>{
+        M.AutoInit();
         this.setState({ isLoading: true })
         let self = this
         let casesArray=[];

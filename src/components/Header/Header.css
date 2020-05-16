@@ -1,9 +1,10 @@
 a.left.brand-logo {
   display: flex; }
-  a.left.brand-logo .logo {
-    height: 56px;
-    padding: 5px;
-    width: 56px; }
+
+a.left.brand-logo .logo {
+  height: 56px;
+  padding: 5px;
+  width: 56px; }
 
 .pulse.sidenav-trigger {
   border-radius: 50px;
@@ -12,6 +13,7 @@ a.left.brand-logo {
   width: 40px;
   top: 8px;
   border: 1px solid #ffffff38; }
-  .pulse.sidenav-trigger i.material-icons {
-    line-height: 35px;
-    color: white; }
+
+.pulse.sidenav-trigger i.material-icons {
+  line-height: 35px;
+  color: white; }
