@@ -14,13 +14,13 @@ export default class TopStats extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            isLoading: false,
-            error: null,
             globalTotal: { cases: 0, deaths: 0, recovered: 0 },
             dataCasesGraph:[],
             dataDeathsGraph:[],
             dataRecoveredGraph:[],
-            yesturdayGlobal: { cases: 0, deaths: 0, recovered: 0 }
+            yesturdayGlobal: { cases: 0, deaths: 0, recovered: 0 },
+            error: null,
+            isLoading: false
         };
     }
 
@@ -29,7 +29,7 @@ export default class TopStats extends Component {
         const { isLoading, error } = this.state;
 
         if ( isLoading ){var fetching = console.log("loading StatCards")}
-        if ( error ){ return <p className="white-text"> {error.message} </p>;}
+        if ( error ){ return <p className="white-text"> {error.message} StatCard</p>;}
 
         return (
             <div className="top-container">
@@ -77,7 +77,6 @@ export default class TopStats extends Component {
     }
 
     componentDidMount = async () =>{
-        M.AutoInit();
         this.setState({ isLoading: true })
         let self = this
         let casesArray=[];

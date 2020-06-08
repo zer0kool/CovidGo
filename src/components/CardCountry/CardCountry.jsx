@@ -7,7 +7,10 @@ import {AiFillPlusCircle} from 'react-icons/ai'
 export default class CardCountry extends Component {
 
     formatNumber = (num) => {
-        return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
+        //return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
+        if (num === null) {return num = 0}
+        return num.toLocaleString()
+
     }
     render() {
         const {
