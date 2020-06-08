@@ -7,10 +7,13 @@
   justify-content: center;
   flex-direction: column;
   transition: background 0.5s; }
-  .precautions_card:hover {
-    background-color: #e91e63; }
-  .precautions_card .img_card {
-    max-width: 100px;
-    margin-bottom: 10px; }
-  .precautions_card .text_card {
-    text-align: center; }
+
+.precautions_card:hover {
+  background-color: #e91e63; }
+
+.precautions_card .img_card {
+  max-width: 100px;
+  margin-bottom: 10px; }
+
+.precautions_card .text_card {
+  text-align: center; }
